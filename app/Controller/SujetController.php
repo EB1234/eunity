@@ -4,94 +4,97 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use Model\SujetModel;
+use Model\CentreInteretModel;
+use Model\SalonModel;
 
 
 class SujetController extends Controller
 {
 
-
 	/**
-	 * Page d'accueil par défaut
+	 * Page sujet selectionnée
 	 */
-	public function sujet()
+	public function sujet($id_sujet)
+		{
+		
+		//on crée un nouvel objet qui permet de recuperer les données de la base de donnée
+		$db = new SujetModel;
+		$db->setTable('sujet_ci');
+		$db->setPrimaryKey('id_sujet');
+	
+
+		//on récupere l'id dans l'url et on fait afficher le sujet choisi 
+		$UnSujet = $db->getSujet($id_sujet);
+		
+	 	$sal = new SalonModel;
+		$sal->setTable('sujet_plusieurs_salons');
+		$sal->setPrimaryKey('id_salon');
+			//on recupere la liste des salons pour un sujet
+		$listeDeSalons = $sal-> getSalonFromSujet($id_sujet);
+		
+
+	 	$this->show('membre/sujet',array(
+					'ListeDeSalons'=> $listeDeSalons,
+					'sujet' => $UnSujet));
+
+
+		
+	
+	}
+
+		// la liste de toute les categorie, dans la vue tu n'a pas forcement toutes les catégories ... Donc la liste se récupérer directement dans la table concerné !
+
+	
+	public function categorie($id_centre_interet)
 	{
-		$loggedUser = $this->getUser();		
-		$this->show('membre/sujet',['loggedUser'=>$loggedUser]);
+		$db = new SujetModel;
+		$db->setTable('sujet_ci');
+		$db->setPrimaryKey('id_sujet');
+		
+		//on récupere l'id dans l'url et on fait afficher la liste des sujets de la catégorie choisie
+		
+		$ListeDesSujetsDeMaCategorie = $db->getSujetFromCategory($id_centre_interet);
+		var_dump($ListeDesSujetsDeMaCategorie); 
+
+
+		$CI = new CentreInteretModel;
+		$CI->setTable('centre_interet');
+		$CI->setPrimaryKey('id_centre_interet');
+
+		$ListeDeMesCI = $CI->findAll();
+
+		$this->show('default/home', array(
+			'ListeDeSujets' => $ListeDesSujetsDeMaCategorie,
+			'ListeDeMesCI'  => $ListeDeMesCI
+		));
+
 	}
+	// public function salon(){
+		
+		// $Sal = new SalonModel;
+		// $ListeDeSujets = $sal->getListeDeSalons();
+		// $this->show('membre/sujet',['ListeDeSalons' => $ListeDeSalons]);
+	// }
+	// public function salon($id_salon)
+	// {
+		// $sal = new SujetModel;
+		// $sal->setTable('sujet_plusieurs_salons');
+		// $sal->setPrimaryKey('id_salon');
+		
 
-	public function gestionSujet($slug ="", $id = ""){
+		// $ListeDeSalons = $sal->findAll();
 
-		$modification = "";
-		$tousSujets = new SujetModel;
+		// $this->show('membre/sujet',['salon'=> $ListeDeSalons]);
+		
 
-		if ($slug == "suppression"){
+	// }
 
-			$dbSuppr = new SujetModel;
-			$dbSuppr->setTable('sujet');
-			$dbSuppr->setPrimaryKey('id_sujet');
-			$dbSuppr->delete($id);
-
-			$this->redirectToRoute('gestion_sujet');
-
-		}
-
-		elseif ($slug == "modification"){
+	// public function profil()
+	// {
+		// $this->show('membre/sujet');
 
 
-				$dbModif = new SujetModel;
-				$dbModif->setTable('sujet');
-				$dbModif->setPrimaryKey('id_sujet');
+	// }
 
-				$modification = $dbModif->find($id);
 
-			if ($_POST) {
-				
-				$nom_photo = $_FILES['photo']['name'];
-				$photo_bdd = '/USER\convenio-cafe\public\assets\upload\sujet/' . $nom_photo;
-
-				$photo_dossier = $_SERVER['DOCUMENT_ROOT'] . $photo_bdd;
-
-				$data = array(
-					'nom_sujet' 		=> $_POST['titre'],
-					'id_centre_interet'	=> null,
-					'photo_sujet' 		=> $photo_bdd,
-					'description_sujet'	=> $_POST['description']
-				);
-				
-				copy($_FILES['photo']['tmp_name'], $photo_dossier);
-
-				$modif = $dbModif->update($data, $id);
-
-			}
-		}
-
-		// else {
-
-		// 	if ($_POST) {
-
-		// 		$db = new SujetModel;
-		// 		$db->setTable('sujet');
-		// 		$db->setPrimaryKey('id_sujet');
-
-		// 		$nom_photo = $_FILES['photo']['name'];
-		// 		$photo_bdd = '/USER\convenio-cafe\public\assets\upload\sujet/' . $nom_photo;
-
-		// 		$photo_dossier = $_SERVER['DOCUMENT_ROOT'] . $photo_bdd;
-
-		// 		copy($_FILES['photo']['tmp_name'], $photo_dossier);
-
-		// 		$data = array(
-		// 			'id_sujet'			=> null,
-		// 			'nom_sujet' 		=> $_POST['titre'],
-		// 			'id_centre_interet'	=> null,
-		// 			'photo_sujet' 		=> $photo_bdd,
-		// 			'description_sujet'	=> $_POST['description']
-		// 		);
-
-		// 		$data = $db->insert($data);
-		// 	}
-		// }
-
-		$this->show('sujet/ajoutModificationSujet',['tousSujets'=> $tousSujets->getTousSujets(),'data' => $_FILES, 'id' => $id, 'slug' => $slug, 'modification' => $modification]);
-	}
 }

@@ -7,9 +7,9 @@
 
 
 <main class="sujet">
-    <div class="cgu">
+    <div style="margin: auto; width: 50%;">
 
-				<h2>Plan du site</h2>
+				<h3>Plan du site</h3>
 				  <hr><br>
 					<p>Accueil</p>
 					<p>Inscription/Connexion</p>

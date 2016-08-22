@@ -1,80 +1,88 @@
-	<?php $this->layout('layout', ['title' => 'Ajout ou modification de Sujet']) ?>
+<?php $this->layout('layout', ['title' => 'Europeans']) ?>
 
 <?php $this->start('main_content') ?>
 
 
 
-
-
 <main class="sujet">
-    <div class="cgu">
-	
-       <img src="<?= $this->assetUrl('img/is_secularism_under_threat_in_Europe.jpg'); ?>">
-        <p>Secularism is one of the bedrocks of European liberal democracy. Across the continent, 
-		people take it for granted that governments are separated from religious institutions. 
-		Even in states that maintain an official established religion (such as England or Malta) 
-		secularism is essentially followed in practice.
-        But is all that changing? Is secularism now under threat in parts of Europe? We had a comment 
-		sent in from Jon on our ‘Suggest a Debate’ page, arguing that immigration is fundamentally changing 
-		European society, and is putting secularism under threat.	
-        According to a 2012 Eurobarometer survey, 72% of people living in the EU define themselves as Christian, 
-		whereas only 23% think of themselves as atheist or agnostic (and 2% define themselves as Muslim, whilst 
-		less than 1% call themselves Buddhist, Sikh, Hindu, or Jewish). It’s true that religious minorities are 
-		often concentrated in urban areas, and they seem to receive a disproportionate amount of (often negative) 
-		attention via the media. But it seems a stretch to argue that immigration is ‘threatening’ European secularism.
-        Is secularism under threat in Europe? Or has Europe never been more secular? Are fears about the erosion 
-		of secularism being overblown? Let us know your thoughts and comments in the form below, and we’ll take them to 
-		policymakers and experts for their reactions!</p>
+    <div style="margin: auto; width: 50%;">
+   
+        <img src="<?= $this->assetUrl('/img/'.$sujet->getSujetPhoto()); ?>"><br>
+         <div><?=$sujet->getNomSujet()?><div>
+        <?=$sujet->getDescriptionSujet()?>
+        
+    </div>
 
+    <div style="margin: 30px 0; width: 100%; background-color: #E3E7E8; color: #919E9E; font-size: 2em; text-align: center; font-family: 'Helvetica', sans serif; text-transform: uppercase; letter-spacing: 0.1em;">
+    <!--it’s a pleasure to meet you.<br>
+        let’s have coffee sometime.<br> -->
+        <button>comment</button><br>
+        <button>meet up</button>
+    </div>
 
-		<!-- <div style="margin: 30px 0; width: 100%; background-color: #E3E7E8; color: #919E9E; font-size: 2em; text-align: center; text-transform: uppercase; letter-spacing: 0.1em; padding:20px;">
-		it’s a pleasure to meet you.<br>
-			let’s have coffee sometime.<br> -->
-			<button>comment</button>
-			<a href="#" id="myBtn2">meetup</a>
-							<!-- Modal content -->	
-				<div id="myWinmodal" class="myWinmodal">
-					<div class="myWinmodal-content">						
-							<span class="closing">Fermer</span>
-						
 		
-								<form id="formInscriptionId" name="formInscription" class="formulaire" method="POST" action="<?php echo $this->url('default_home'); ?>">
-									<h5>Choisissez votre café de préference</h5>
-																
-									<label for="pseudo">pseudo</label>
-									<input type="text" id="pseudoId" name="pseudo" placeholder="Votre pseudo" pattern="^[a-zA-Z0-9_]{4,16}$">				
-									<span class="msg-error">Veuillez renseigner vos identifiants de connexion</span>
-									
-									<label for="mail">email</label>
-									<input type="email" id="mailId" name="mail" placeholder="Votre adresse@mail.fr">
-									<span class="msg-error">Veuillez vérifier le format de votre email</span>
-													
-									
-												
-								<input type="submit" value="Meet up" class="btn">
-								</form>
-			
-					</div>
-			
-				</div>
-			
+		
+<!-- <?php //print_r($ListeDeSalons); ?> -->
 
-			
-			
-			
-		<!--</div>-->
-		  
-		<div class="gestio-com-suj">
-				<section class="gestion-left">
-					<article><p>Cocuo</p></article>
-				</section>
+ <?php foreach ($ListeDeSalons as $UnSalon):?>
+		<img src="<?= $this->assetUrl('/upload/'.$UnSalon->getPhoto());?>"><br>
+        <?=$UnSalon->getDateRdv()?>
+
+        <a href="<?= $this->url('salon', ['id_salon' => $UnSalon->getIdSalon()]) ?>"><?=$UnSalon->getLieuRdv()?></a>
+        <?=$UnSalon->getNom()?>
+         <?=$UnSalon->getOpenClose()?> 
+         
 				
-				<section class="gestion-rigth">
-					<article><p>Cocuo2</p></article>
-				</section>
-		</div>
-	</div>
+			<?php endforeach; ?>
 
+<!--     <div class="home_sujet">
+    <div class="triangle-top"></div>
+    <div class="triangle-bottom"></div>
+</div> -->
+    <input class="barreRecherche" type="search" placeholder="Rechercher">
+
+    <div class="row">
+        <p>Trier par:</p>
+        <select class="sort-options">
+            <option value="">Defaut</option>
+            <option value="title">Pseudo</option>
+            <option value="date-created">Date</option>
+        </select>
+    </div>
+
+    <div id="grid" class="row" style="max-width: 80%;">
+
+   <figure class="picture-item" style="background-color: #e1e3e4; width: 100%; height: 150px; padding: 30px; " data-groups="[&quot;Religion&quot;]" data-date-created="2016-08-16" data-title="blabla">
+        <div style="width: 20%; height: 100%; margin-right: 30px; float: left; background-image: url(<?= $this->assetUrl('img/is_secularism_under_threat_in_Europe.jpg'); ?>">
+        </div>
+        <figcaption class="picture-item__title">
+            <div style="width: 60%; float: left;">
+                <em>Martin</em><br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+            <div style="float: right;">
+                <em style="display: inline-block; height: 17px; padding: 0 5px; background: #DF6C4F; font-size: 13px; font-style: normal; color: #FFF; line-height: 18px; border-radius: 2px;">New</em>
+                <p>16 Aug</p><p style="color: #3c948b; text-transform: uppercase;">online</p>
+            </div>     
+        </figcaption>
+    </figure>
+
+    <figure class="picture-item" style="background-color: #e1e3e4; width: 100%; height: 150px; padding: 30px; " data-groups="[&quot;Religion&quot;]" data-date-created="2016-08-12" data-title="blabla">
+        <div style="width: 20%; height: 100%; margin-right: 30px; float: left; background-image: url(<?= $this->assetUrl('img/is_secularism_under_threat_in_Europe.jpg'); ?>">
+        </div>
+        <figcaption class="picture-item__title">
+            <div style="width: 60%; float: left;">
+                <em>Bruno</em><br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+            <div style="float: right;">
+                
+                <p>12 Aug</p><p style="color: #3c948b; text-transform: uppercase; color: #DF6C4F;">offline</p>
+            </div>     
+        </figcaption>
+    </figure>
+
+    </div> <!-- Fin DIV grid -->
 </main>
 
 <?php $this->stop('main_content') ?>
