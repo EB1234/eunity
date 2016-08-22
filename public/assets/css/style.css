@@ -30,6 +30,7 @@ h2 {
 }*/
 
 @import 'https://fonts.googleapis.com/css?family=Montserrat';
+@import 'https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans';
 
 body {
   font-family: '', sans-serif;
@@ -150,6 +151,8 @@ div.home h1 span {
 	-webkit-transition: 2.2s ease-out;
 	transition: 2.2s ease-out;
 }
+
+
 
 /*******************************************
                   PAGE SUJET
@@ -413,4 +416,170 @@ hr {
     color: #34828E;
     text-align: left;
     float: left;
+}
+
+msg-error
+{
+	font-size: .7em;
+	font-family: 'Open Sans', sans-serif;
+    font-family: 'Droid Sans', sans-serif;
+    color: #34828E;
+    text-align: left;
+    float: left;
+}
+
+/*	STYLE FORMULAIRE DE CONTACT*/
+
+.contact
+{
+	margin: auto; 
+	width: 100%; 
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+.container-contact
+{
+	width: 50%; 
+	padding-top: 40px;
+	float:left;
+	background-color: #f4f4ef;
+
+}
+.container-contact2
+{
+	width: 50%; 
+	padding-top: 40px;
+	float:left;
+	background-color: #f4f4ef;
+}
+
+.formulaire-contact
+{
+	margin-left:150px;
+	width:80%;
+	height:600px;
+	border: 0px solid #2C3E50;
+	padding:15px 50px;
+
+}
+
+ .contact-message
+{
+	z-index:1;
+	width:60%;
+	height:50;
+	margin-left:200px;
+	padding:20px;
+	color: #fff;
+	background-color:#34828E; 
+	/*background-color: rgba(44,62,80,0.8);*/
+}
+
+
+.container-contact h3 
+{
+	margin-left: 200px;
+}
+
+.container-contact2 h3
+{
+	margin-left: 150px;
+}
+
+.formulaire-contact input
+{
+	width:40%;
+	margin-bottom:5px;
+}
+
+.formulaire-contact label, .formulaire-contact input
+{
+	display: block;
+
+}
+.formulaire-contact label
+{
+	text-align:left;
+	margin-top:20px;
+
+}
+.art1
+{	
+	height:600px;
+	float: left;
+	padding:0px 0px 0px 150px;
+
+}
+
+.art1>article>
+{
+	float:left;
+	width:350px;
+}
+
+iframe
+{
+	margin-top:20px;
+	margin-bottom: 20px;
+	float:left;
+}
+
+
+/* MESSAGE D'INSCRIPTION REUSSIE */
+
+.message-reussi
+{
+	margin: auto; 
+	width: 40%; 
+	padding-top: 150px;
+	min-height: 700px;
+}
+
+.reussie
+{
+	width: 60%;
+	height: 200px;
+	background-color:#278EB1;
+	margin: auto;
+	padding: 20px;
+}
+
+.reussie>h4, .reussie>p
+{
+	color: #fff;
+}
+
+.pseudo-connecte
+{
+	font-size: 1.1em;
+	color: #278EB1;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+/*RAJOUT DE COMMENTS PAGE PROFIL PUBLIC (SUJET)*/
+
+.gestio-com-suj
+{
+	margin: auto; 
+	width: 100%; 
+	min-height: 80%;
+	margin-bottom:100px;
+	background-color: #f4f4ef;
+}
+
+.gestion-rigth
+{
+	width:50%;
+	background-color:#ddd;
+	float:left;
+	height:100px;
+}
+
+.gestion-left
+{
+	width:50%;
+	background-color:#eee;
+	float:left;
+	height:100px;
 }
