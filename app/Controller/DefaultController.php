@@ -31,9 +31,6 @@ class DefaultController extends Controller
 		$ListeDeMesCI = $CI->findAll();
 		
 		
-		
-		
-		
 		$this->show('default/home',[
 		//'ListeSalons'=>$ListeDeSalons,
 		'ListeDeSujets' => $ListeDeSujets,
