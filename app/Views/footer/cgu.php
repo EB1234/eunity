@@ -7,7 +7,7 @@
 
 
 <main class="sujet">
-    <div style="margin: auto; width: 50%;">
+    <div class="cgu">
 			<h2>CGU - Conditions Générales d'Utilisation</h2>
 				  
 				<p>Conditions générales d'accès au service

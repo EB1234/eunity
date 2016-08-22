@@ -13,10 +13,17 @@ class ConnexionController extends Controller
 	 * Page de connexion
 	 */
 
+
 	public function connexion() {
 		
 		// -- Récupération et Vérification des Données POST
 		if($_POST) {
+			
+			if (($_POST['pseudo'] == "") OR ($_POST['mdp'] == "")) {
+					//echo 'Veuillez renseigner vos identifiants de connexion.';
+				
+			}
+			else {
 			
 			// -- Création d'une instance de ma classe MembreAuthentificationModel
 			$db = new ConnexionModel;
@@ -43,16 +50,17 @@ class ConnexionController extends Controller
 		
 				// 3 -- Puis on le redirige
 				$this->redirectToRoute('default_home');
+				
 			}
-		
+			else {
+					echo 'Vos identifiants de connexion sont incorrects.';
+				}
 			
+			}
+
 		}
 		
-		// -- Envoi à la vue connexion
-		$this->show('connexion');
-		
 	}
-
 	public function deconnexion() {
 
 				// -- Création d'une instance de ma classe MembreAuthentificationModel
@@ -64,5 +72,6 @@ class ConnexionController extends Controller
 
 	}
 
+	}
 
-}
+
