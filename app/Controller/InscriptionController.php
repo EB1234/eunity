@@ -16,12 +16,12 @@ class InscriptionController extends Controller
 	 */
 	public function inscription(){
 
+
 		function age($date){
 		  return (int) ((time() - strtotime($date)) / 3600 / 24 / 365);
 		}
 
 		if ($_POST){
-
 
 			// vérifs des données saisies
 			// jes vais procéder à mon insersion
@@ -45,7 +45,7 @@ class InscriptionController extends Controller
 				'statut'			=> 0,
 				'photo'				=> null,
 				'genre'				=> null,
-				'date_naissance' 	=> $_POST['dateNaissance'],
+				'date_naissance' 	=> $_POST['date_naissance'],
 				'age_public'		=> null,
 				'date_inscription'	=> date("Y-m-d H:i:s"),
 				'autre'				=> null
@@ -107,25 +107,25 @@ class InscriptionController extends Controller
 
 			// vérif DATE DE NAISSANCE
 
-			if (empty($_POST['dateNaissance'])) {
+			if (empty($_POST['date_naissance'])) {
 				$controle        = false;
       			$messageErreur  .= 'Veuillez renseigner votre date de naissance.</br>';
 			}
 
-			if (age($_POST['dateNaissance']) < 18) {
+			if (age($_POST['date_naissance']) < 18) {
 				$controle        = false;
       			$messageErreur  .= 'Ce site est réservé aux membres majeurs !</br>';
 			}
 
     		//Si tout est bon, on envoie !
 
-    		if ($controle == true){
+    		if ($controle){
 				// -- J'appelle la méthode insert du model
 				$db->insert($data);
 
 				// -- je fais une redirection en cas de success
-				$this->redirectToRoute('default_home');
-
+				//$this->redirectToRoute('message_inscription');
+				$messageErreur ='Merci de votre inscription et bonne navigation';
 			}
 
 		    // Affichage des erreurs
@@ -134,7 +134,7 @@ class InscriptionController extends Controller
 
 		}
 
-		$this->show('inscription/inscription');
+		$this->show('inscription/message_inscription',['messageErreur' => $messageErreur]);
 	}
 
 

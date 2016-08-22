@@ -3,7 +3,7 @@ $(document).ready(function() {
 	console.log('DOM chargé');
 
 	/* **********************************************
-		CIBLAGE DES ELEMENTS
+		CIBLAGE DES ELEMENTS INSCRIPTION
 	********************************************* */
 
 	var $formInscription = $('#formInscriptionId');
@@ -11,14 +11,15 @@ $(document).ready(function() {
 	var $elementMail = $('#mailId');
 	var $elementMotDePasse = $('#mdpId');
 	var $elementMotDePasseBis = $('#mdpBisId');
-	var $elementDateNaissance = $('#dateNaissanceId');
+	var $elementDateNaissance = $('#date_naissanceId');
 	// cacher les messages d'erreur
 	$('span.msg-error').hide();
 
 	/* **********************************************
 		VALIDATION DU FORMULAIRE
 	********************************************* */
-	$formInscription.on('submit', function(event) {
+	$formInscription.on('submit', function(event)
+	{
 		console.log('Tentative d\'envoi du form');
 
 		var erreurs = [];
@@ -28,29 +29,25 @@ $(document).ready(function() {
 		var pseudo = $elementPseudo.val();
 		var motDePasse = $elementMotDePasse.val();
 		var motDePasseBis = $elementMotDePasseBis.val();
-		var dateNaissance = $elementDateNaissance.val();
+		var dateNaissance = $elementDateNaissance;
 
 		// validation du pseudo
 
 		var pseudoPattern = new RegExp($elementPseudo.attr('pattern'));
 		var pseudoValide = pseudoPattern.test( pseudo );
-		var pseudoExist = pseudoPattern;
 		console.log( pseudo, pseudoPattern, pseudoValide );
+		
+		
+		//suppression des notifications d'erreurs dans le DOM
+		//$("p.error").remove();
+		//var erreurs = [];
 
 		if (! pseudoValide) {
 			erreurs.push({
 				'id': $elementPseudo.attr('id'), 
-				'msg': 'Veuillez vérifier le format de votre pseudo'
+				'msg': 'Veuillez vérifier le format de votre pseudo.'
 			});
 		}
-		else if(pseudoValide == pseudoExist)
-			{
-			erreurs.push({
-				'id': $elementPseudo.attr('id'), 
-				'msg':'Ce pseudo est déjà utilisé'
-				});
-			}
-
 	
 		// validation du mot de passe (et de sa confirmation)
 		var motDePassePattern = new RegExp($elementMotDePasse.attr('pattern'));
@@ -59,17 +56,28 @@ $(document).ready(function() {
 		if (! motDePasseValide) {
 			erreurs.push({
 				'id': $elementMotDePasse.attr('id'), 
-				'msg': 'Veuillez vérifier le format de votre mot de passe'
+				'msg': 'Veuillez vérifier le format de votre mot de passe.'
 			});
 		}
 		else if (motDePasse !== motDePasseBis) {
 			erreurs.push({
 				'id': $elementMotDePasseBis.attr('id'), 
-				'msg': 'Les mots de passe ne correspondent pas'
+				'msg': 'Les mots de passe ne correspondent pas.'
 			});
 		}
-
-
+		
+		
+		// validation date
+	/*  	var dateNaissance = new Date();	
+		var dateNaissanceValide = dateNaissance.test(dateNaissance);
+		console.log( dateNaissance, dateNaissanceValide, dateNaissanceExiste ); 		
+		if (! dateNaissance) {
+			erreurs.push({
+				'id': $elementDateNaissance('id'), 
+				'msg': 'Veuillez renseigner votre date de naissance.'
+			});
+		} */ 
+ 
 		// si il y a des erreurs,
 		// je ne veux pas envoyer les données
 		if (erreurs.length !== 0) {
@@ -90,8 +98,7 @@ $(document).ready(function() {
 
 			event.preventDefault();
 		}
-
 	});
-
-
 });
+
+	
