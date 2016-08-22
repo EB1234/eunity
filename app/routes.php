@@ -17,9 +17,16 @@
 		// MODIFICATION D'UN SUJET//
 		['GET|POST','/gestion-sujet/[:slug]/[i:id]', 'Sujet#gestionSujet','gestion_sujet_modif'],
 
+		['GET', '/profil2/', 'Membre#profil_2', 'profil_2'],
+ 		['GET', '/sujet', 'Sujet#sujet', 'sujet'],
+ 		['GET|POST', '/message_inscription', 'Message_inscription#message', 'message'],
+
 		['GET|POST','/modifier','Membre#modifier','membre_modifier'],
 		['GET|POST','/supprimer','Membre#supprimer','membre_supprimer'],
 
 		['GET','/CGU','CGU#cgu','cgu'],
 		['GET','/plan','Plan#plan','plan'],
+
+		['GET|POST','/contact','Contact#contact','contact'],
+ 		['GET|POST','/contact','Contact#contact','ContactForm'],
 	);
