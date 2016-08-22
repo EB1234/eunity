@@ -11,6 +11,12 @@
 		['GET','/categorie/[:id_centre_interet]','Sujet#categorie','categorie'],
 		['GET', '/salon/[:id_salon]', 'Sujet#salon', 'salon'],
 
+		['GET|POST','/gestion-sujet', 'Sujet#gestionSujet','gestion_sujet'],
+		// SUPPRESSION D'UN SUJET - AJOUTER UNE CONFIRMATION JQUERY//
+		['GET|POST','/gestion-sujet/[:slug]/[i:id]', 'Sujet#gestionSujet','gestion_sujet_suppr'],
+		// MODIFICATION D'UN SUJET//
+		['GET|POST','/gestion-sujet/[:slug]/[i:id]', 'Sujet#gestionSujet','gestion_sujet_modif'],
+
 		['GET|POST','/modifier','Membre#modifier','membre_modifier'],
 		['GET|POST','/supprimer','Membre#supprimer','membre_supprimer'],
 
