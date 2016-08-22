@@ -610,3 +610,77 @@ iframe
 	float:left;
 	height:100px;
 }
+
+/*******************************************
+      		PAGE GESTION DE SUJET
+*******************************************/
+.triangle-top_sujet {
+	bottom: 0;
+	border-bottom: 70px solid #404048;
+	border-right: 100vw solid transparent;
+	height: 0;
+	
+	position: relative;
+	
+	right: 0;
+	width: 0;
+	z-index: 50;
+}
+
+.gestion_sujet {
+	background-color: #404048;
+	color: #FFF;
+	font-size: 12px;
+}
+
+.gestion_sujet fieldset {
+	margin: 50px auto;
+	padding: 30px;
+	text-align: center;
+	width: 40%;
+}
+
+.gestion_sujet fieldset .btn {
+	padding: 10px;
+	margin: 30px 5px 0 5px;
+}
+
+.gestion_sujet table {
+	margin: auto;
+	line-height: 1.5;
+	opacity: 0.90;
+	width: 75%;
+}
+
+.gestion_sujet table td {
+	border-bottom: 1px solid #FFF;
+	height: 150px;
+	opacity: 0.95;
+}
+
+.gestion_sujet table a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.gestion_sujet tbody tr:nth-child(odd) {
+	background-color: #424B56;
+	text-decoration: none;
+}
+
+.gestion_sujet label {
+	color: #FFF;
+	display: block;
+	text-decoration: none;
+	margin: 20px 0 10px 0;
+}
+
+.gestion_titre {
+	color: #444;
+	font-size: 1.6em;
+	font-weight: 300;
+	letter-spacing: 3px;
+	margin: 75px 0 50px 0;
+	text-align: center;
+	text-transform: uppercase;
+}
