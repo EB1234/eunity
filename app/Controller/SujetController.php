@@ -53,7 +53,7 @@ class SujetController extends Controller
 		//on récupere l'id dans l'url et on fait afficher la liste des sujets de la catégorie choisie
 		
 		$ListeDesSujetsDeMaCategorie = $db->getSujetFromCategory($id_centre_interet);
-		var_dump($ListeDesSujetsDeMaCategorie); 
+		//var_dump($ListeDesSujetsDeMaCategorie); 
 
 
 		$CI = new CentreInteretModel;

@@ -62,49 +62,52 @@
 					?>
 					<?php for ($i = 0; $i < 3; $i++) { ?>
 
-						<?php $UnSujet = $ListeDeSujets[$j]; ?>
+						<?php  if($i < $nb) { 
 
-							<?php if($i != $rand) { ?>
+							$UnSujet = $ListeDeSujets[$j];  ?>
 
-								<figure class="col-3@xs col-4@sm col-3@md picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;<?php echo $UnSujet->getCentreInteret(); ?>&quot;]" data-date-created="2010-09-14" data-title="Baseball" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; transition: transform 250ms ease, opacity 250ms ease; opacity: 1; transform: translate(0px, 0px) scale(1);">
-									<div class="picture-item__inner">
-										<div class="aspect aspect--16x9">
-											<div class="aspect__inner">
-												<img src="<?php echo $this->assetUrl('img/'.$UnSujet->getSujetPhoto()); ?>" alt="" height="145" width="230">
-												<img class="picture-item__blur" src="<?= $this->assetUrl('img/'.$UnSujet->getSujetPhoto()); ?>" alt="" height="145" width="230">
+								<?php if($i != $rand) { ?>
+
+									<figure class="col-3@xs col-4@sm col-3@md picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;<?php echo $UnSujet->getCentreInteret(); ?>&quot;]" data-date-created="2010-09-14" data-title="Baseball" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; transition: transform 250ms ease, opacity 250ms ease; opacity: 1; transform: translate(0px, 0px) scale(1);">
+										<div class="picture-item__inner">
+											<div class="aspect aspect--16x9">
+												<div class="aspect__inner">
+													<img src="<?php echo $this->assetUrl('img/'.$UnSujet->getSujetPhoto()); ?>" alt="" height="145" width="230">
+													<img class="picture-item__blur" src="<?= $this->assetUrl('img/'.$UnSujet->getSujetPhoto()); ?>" alt="" height="145" width="230">
+												</div>
 											</div>
-										</div>
 
-										<div class="picture-item__details clearfix">
-
-											<figcaption class="picture-item__title pull-left"><a href="<?= $this->url('sujet', ['id_sujet' => $UnSujet->getId()]) ?>"><?=$UnSujet->getNomSujet();?></a></figcaption>
-												<p class="picture-item__tags pull-right hidden@xs"> <?=$UnSujet->getCentreInteret();?></p>
-
-										</div>
-									</div>
-								</figure>
-
-							<?php } // FIN PASSAGE AFFICHAGE DE LA GRANDE IMAGE
-							else { ?>
-
-								<figure class="col-3@xs col-8@sm col-6@md picture-item picture-item--overlay shuffle-item shuffle-item--visible" data-groups="[&quot;<?php echo $UnSujet->getCentreInteret(); ?>&quot;]" data-date-created="2011-08-14" data-title="Tennis" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(300px, 0px) scale(1); transition: transform 250ms ease, opacity 250ms ease;">
-									<div class="picture-item__inner">
-										<div class="aspect aspect--16x9">
-											<div class="aspect__inner">
-												<img src="<?php echo $this->assetUrl('img/'.$UnSujet->getSujetPhoto()); ?>" alt="" height="145" width="230">
-												<img class="picture-item__blur" src="<?php echo $this->assetUrl('img/'.$UnSujet->getSujetPhoto()); ?>" alt="" height="145" width="230">
-											</div>
-										</div>
-									
 											<div class="picture-item__details clearfix">
+
 												<figcaption class="picture-item__title pull-left"><a href="<?= $this->url('sujet', ['id_sujet' => $UnSujet->getId()]) ?>"><?=$UnSujet->getNomSujet();?></a></figcaption>
-													<p class="picture-item__tags pull-right hidden@xs"><?=$UnSujet->getCentreInteret();?></p>
+													<p class="picture-item__tags pull-right hidden@xs"> <?=$UnSujet->getCentreInteret();?></p>
+
 											</div>
+										</div>
+									</figure>
 
-									</div>
-								</figure>
+								<?php } // FIN PASSAGE AFFICHAGE DE LA GRANDE IMAGE
+								else { ?>
 
-							<?php } // FIN DU ELSE ?>
+									<figure class="col-3@xs col-8@sm col-6@md picture-item picture-item--overlay shuffle-item shuffle-item--visible" data-groups="[&quot;<?php echo $UnSujet->getCentreInteret(); ?>&quot;]" data-date-created="2011-08-14" data-title="Tennis" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(300px, 0px) scale(1); transition: transform 250ms ease, opacity 250ms ease;">
+										<div class="picture-item__inner">
+											<div class="aspect aspect--16x9">
+												<div class="aspect__inner">
+													<img src="<?php echo $this->assetUrl('img/'.$UnSujet->getSujetPhoto()); ?>" alt="" height="145" width="230">
+													<img class="picture-item__blur" src="<?php echo $this->assetUrl('img/'.$UnSujet->getSujetPhoto()); ?>" alt="" height="145" width="230">
+												</div>
+											</div>
+										
+												<div class="picture-item__details clearfix">
+													<figcaption class="picture-item__title pull-left"><a href="<?= $this->url('sujet', ['id_sujet' => $UnSujet->getId()]) ?>"><?=$UnSujet->getNomSujet();?></a></figcaption>
+														<p class="picture-item__tags pull-right hidden@xs"><?=$UnSujet->getCentreInteret();?></p>
+												</div>
+
+										</div>
+									</figure>
+
+								<?php } // FIN DU ELSE ?>
+							<?php } ?>
 
 					<?php $j++; } // FIN FOR ?>		
 

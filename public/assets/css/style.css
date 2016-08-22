@@ -428,6 +428,10 @@ a:visited{
 	color:#000;
 }
 
+a.lienCategorie {
+	color:#FFF;
+}
+
 hr {
 	width: 50%;
 	border: .5 solid #f4f4ef;
