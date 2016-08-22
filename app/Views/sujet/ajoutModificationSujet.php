@@ -5,7 +5,8 @@
 	<?php $this->stop('header') ?>
 
 
-	<?php $this->start('main_content');	?>
+	<?php $this->start('main_content');
+	?>
 
 	<main class="container">
 		<table>
@@ -24,7 +25,7 @@
 						echo '<tr>
 								<td>' . $s_array->getNomSujet() . '</td>' . 
 								'<td>' . $s_array->getDescriptionSujet() . '</td>' . 
-								'<td><img width="150px" src="\USER\convenio-cafe\public\assets\upload\sujet/' . $s_array->getSujetPhoto() . '"></td>' .
+								'<td><img width="150px" src="' . $s_array->getSujetPhoto() . '"></td>' .
 								'<td><a href="' . $this->url("gestion_sujet_modif", ["slug" => "modification", "id" => $s_array->getIdSujet()]) . '">Modifier</a><br>
 								<a href="' . $this->url("gestion_sujet_suppr", ["slug" => "suppression", "id" => $s_array->getIdSujet()]) . '" >Supprimer</a><br>
 								<a href="#" >Ajouter un rendez-vous</a></td>
@@ -33,6 +34,19 @@
 				?>
 			</tbody>
 		</table>
+		<?php
+			// echo $id;
+			// echo $photo_bdd;
+
+			// echo $s_array->getNomSujet();
+			// echo '<pre>';
+			// print_r($data);
+			// echo '</pre>';
+			
+			echo '<pre>';
+			print_r($_POST);
+			echo '</pre>';
+		?>
 
 		<fieldset class="form">
 
@@ -52,7 +66,7 @@
 				<?php 
 						if ($slug == "modification") {
 							echo 'Vous pouvez uploader une nouvelle photo <br>';
-							echo '<img src="\USER\convenio-cafe\public\assets\upload\sujet/'. $modification['photo_sujet'] .'" width="80"><br>';	// affiche la photo actuelle
+							echo '<img src="'. $modification['photo_sujet'] .'" width="80"><br>';	// affiche la photo actuelle
 							echo '<input type="hidden" name="photo_actuelle" value="' . $modification['photo_sujet'] . '">';
 							echo '<input type="hidden" name="id_sujet" value="' . $id . '">';
 						}
