@@ -40,6 +40,18 @@ body {
   min-height:100%;
 }
 
+/* -- INTERVENTION FORMATEUR -- */
+
+
+header, section, footer {
+	width:100%;
+	height: auto;
+	float: left;
+}
+
+
+
+
 nav ul {
 	width: 100%;
 	margin: 0;
@@ -83,17 +95,29 @@ footer ul {
 }
 
 footer ul li {
-	display: inline-block;
+	background-color: #FFF;
+	display: inline-block;	/* permet de tenir compte de width */
 	list-style-type: none;
 	padding: 5px 0;
 	text-align: center;
 	width: 30%;
 }
 
+footer ul li a{
+	color:#2f2e3d;
+}
+
+footer ul li a:hover{
+	color:#34828E;
+}
+
+footer ul li a:visited{
+	color:red;
+}
+
 footer p {
 	margin-top: 30px;
 }
-
 /*******************************************
       PAGE D'ACCUEIL - TITRE & ACCROCHE
 *******************************************/
