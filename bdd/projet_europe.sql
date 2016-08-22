@@ -167,7 +167,7 @@ CREATE TABLE `sujet_ci` (
 	`id_centre_interet` INT(11) NOT NULL,
 	`nom_ci` VARCHAR(20) NOT NULL COLLATE 'utf8_general_ci',
 	`description_ci` VARCHAR(100) NOT NULL COLLATE 'utf8_general_ci'
-) ENGINE=MyISAM;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 
 -- Export de la structure de vue projet_europe. sujet_plusieurs_salons
@@ -181,7 +181,7 @@ CREATE TABLE `sujet_plusieurs_salons` (
 	`nom` VARCHAR(20) NULL COLLATE 'utf8_general_ci',
 	`photo` VARCHAR(200) NOT NULL COLLATE 'utf8_general_ci',
 	`id_sujet` INT(11) NOT NULL
-) ENGINE=MyISAM;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 
 -- Export de la structure de vue projet_europe. sujet_salon_rdv
@@ -191,7 +191,7 @@ CREATE TABLE `sujet_salon_rdv` (
 	`nombre_participants` INT(11) NOT NULL,
 	`id_sujet` INT(11) NOT NULL,
 	`nom_sujet` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci'
-) ENGINE=MyISAM;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 
 -- Export de la structure de vue projet_europe. sujet_ci
@@ -203,7 +203,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `sujet_ci` AS select 
 -- Export de la structure de vue projet_europe. sujet_plusieurs_salons
 -- Suppression de la table temporaire et création finale de la structure d'une vue
 DROP TABLE IF EXISTS `sujet_plusieurs_salons`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `sujet_plusieurs_salons` AS SELECT salon_rdv.id_salon,salon_rdv.lieu_rdv,salon_rdv.date_rdv,salon_rdv.open_close,salon_rdv.id_membre_maitre,
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `sujet_plusieurs_salons` AS SELECT salon_rdv.id_salon,salon_rdv.lieu_rdv,salon_rdv.date_rdv,salon_rdv.id_membre_maitre,
 membre.nom,membre.photo,sujet.id_sujet  FROM salon_rdv, membre, sujet
 WHERE salon_rdv.id_membre_maitre = membre.id_membre
 AND sujet.id_sujet = salon_rdv.id_sujet ;
