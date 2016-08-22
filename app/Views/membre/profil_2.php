@@ -1,8 +1,5 @@
 <?php $this->layout('layout', ['title' => 'Profil']) ?>
 
-
-
-
 <?php $this->start('main_content'); ?>
 
 <div style="margin: auto; width: 100%; height: 600px; padding-top: 100px; margin-bottom: 10px; background-color :#2f2e3d">
@@ -14,17 +11,13 @@
       </ul>
     <p style="color: #fff; padding-left: 10px; text-align: center;">What's new?</p>
 
-
 <span id="sl_play" class="sl_command">&nbsp;</span>
 <span id="sl_pause" class="sl_command">&nbsp;</span>
 <span id="sl_i1" class="sl_command sl_i">&nbsp;</span>
 <span id="sl_i2" class="sl_command sl_i">&nbsp;</span>
 <span id="sl_i3" class="sl_command sl_i">&nbsp;</span>
 <span id="sl_i4" class="sl_command sl_i">&nbsp;</span>
-  
 
-  
-  
   <section id="slideshow">
   
     <a class="commands prev commands1" href="#sl_i4" title="Go to last slide">&lt;</a>
@@ -126,23 +119,9 @@
 
     </div>
 
-
-
-
-
-
-
-
-
-
   <div id="event" style="background-color: #eee; height: 600px; width: 100%; float: left; margin-bottom: 10px; padding-left: 10px;">
 
-
-
-
  <p>Evénement : /<em>BREXIT</em></p>
-
-
 
         <div style=" float: left; width: 30%; margin: 2px;">
               <img id="photo" src="<?php echo $this->assetUrl('img/is_secularism_under_threat_in_Europe.jpg'); ?>" width=200px class="photo_profil">
@@ -153,8 +132,6 @@
                 J'organise cet événement autour du Brexit.<br>
                 Le départ des anglais va changer le monde de la Bourse.</p>
                 </div>
-
-
 
               <div style="float: left; margin: 5px;">
                 <p><button type="submit" style="display: inline-block; padding: 5px; background: #DF6C4F; font-size: 13px; font-style: normal; color: #FFF; line-height: 18px; border-radius: 2px;">Rejoindre</button></p>
@@ -215,14 +192,6 @@
               </div> 
 
       </div>
-
-
-
-
-
-
-
-
 
 <?php $this->stop('main_content'); ?>
 
