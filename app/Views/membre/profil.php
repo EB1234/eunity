@@ -21,10 +21,10 @@
                                 <i class ="fa fa-user fa-3x" aria-hidden="true"></i>
 
                                     <p id="pseudo">@CHOUCHOU</p>
-                                    <p id="age">AGE: <?= $membre->getAge() ?></p>
-                                    <p id="sexe">SEXE: <?= $membre->getGenre() ?></p>
-                                    <p id="pays">PAYS: <?= $membre->getNationalite() ?></p>
-                                    <p id="contact"><?= $membre->getMail() ?></p><br>
+                                    <p id="age">AGE: <?= $membre->getAge(1) ?></p>
+                                    <p id="sexe">SEXE: <?= $membre->getGenre(1) ?></p>
+                                    <p id="pays">PAYS: <?= $membre->getNationalite(1) ?></p>
+                                    <p id="contact"><?= $membre->getMail(1) ?></p><br>
                                     <p id="citation">J'aime l'europe et suis intéressé par les traditions des differents pays.</p><br>
                                     <p id="reseau">Mes reseaux sociaux<br>
                                             <i class="fa fa-tag fa-2x" aria-hidden="true"></i>
