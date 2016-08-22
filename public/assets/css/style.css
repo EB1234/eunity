@@ -684,3 +684,157 @@ iframe
 	text-align: center;
 	text-transform: uppercase;
 }
+
+/*******************************************
+				PAGE PROFIL
+*******************************************/
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Merienda+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+@import url(https://fonts.googleapis.com/css?family=Cantarell);
+
+
+.style-nav {
+	background-color: #80D0D0; 
+	height: 50px; 
+	width: 100%; 
+	float:left; 
+	margin-bottom: 10px; 
+	margin-top: 0px;
+/*	position: fixed;*/
+}
+
+
+.menu_links {
+
+/*	background-color: #fff; 
+	height: 50px; 
+	width: 100%; 
+	position: relative;
+	text-align: center;
+	margin-bottom: 0;
+	list-style: none;
+	list-style-type: none;*/
+
+	background-color: #FFF;
+/*	position: fixed;
+*/	width: 100%;
+	right: 0;
+	top: 0;
+	margin: 0;
+	padding: 20px;
+	display: inline-block;
+	text-align: center;
+	z-index: 99;
+}
+
+.menu_links li {
+	display: inline;
+}
+
+
+.menu_links li a {
+
+/*text-decoration: none;
+color: red;
+display: inline-block;
+text-align: center;
+list-style-type: none;
+margin-left: 30px;
+margin-right : 30px;*/
+
+	display: inline;
+	margin: 0 15px;
+	color: red;
+	text-decoration: none;
+
+}
+
+
+#name {
+margin-top: 0px;
+font-family: 'Cantarell', sans-serif;
+font-size: 20px;
+color : #000;
+
+}
+
+
+span {
+text-align: center;
+}
+
+
+
+
+#sujets {
+text-align: center;
+}
+
+
+
+
+#comments {
+font-size: 12px;
+text-align: left;
+}
+
+
+#container_profil {
+
+/*background-image: url(<?php echo $this->assetUrl('img/prism.jpg'); ?>);
+background-repeat: no-repeat; 
+background-size: cover;*/
+
+position: relative;
+}
+
+
+.brand-logo {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 2.1rem;
+  padding: 0;
+  white-space: nowrap;
+
+}
+
+#age,
+#sexe,
+#pays,
+#contact,
+#citation,
+#reseau {
+
+font-size: 10px;
+display: inline;
+
+}
+
+#pseudo {
+
+padding-top: 10px;	
+}
+
+
+
+
+.button_nd {
+	color : #fff;
+}
+
+.polaroid {
+  position: relative;
+  width: 220px;
+  margin: auto;
+
+  	 border: 10px solid #fff;
+  	border-bottom: 45px solid #fff;
+  -webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+}

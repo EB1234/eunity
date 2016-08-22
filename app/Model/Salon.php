@@ -6,7 +6,7 @@ class Salon {
 	private $_id_salon; 
 	private $_lieu_rdv;
 	private $_date_rdv;
-	//private $_open_close;
+	private $_open_close;
 	private $_id_membre;
 	private $_nom;
 	private $_photo;
