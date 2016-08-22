@@ -53,5 +53,16 @@ class ConnexionController extends Controller
 		
 	}
 
+	public function deconnexion() {
+
+				// -- Création d'une instance de ma classe MembreAuthentificationModel
+				$db = new ConnexionModel;
+				
+					$db->logUserOut();
+					$this->redirectToRoute('default_home');
+			
+
+	}
+
 
 }

@@ -4,6 +4,8 @@ namespace Controller;
 // permet d'utiliser les fichiers ( une sorte d'inclusion )
 use \W\Controller\Controller;
 use Model\MembreModel;
+use Model\Membre;
+use Controller\InscriptionController;
 
 class MembreController extends Controller
 {
@@ -12,11 +14,11 @@ class MembreController extends Controller
 	{
 		//on crée un nouvel objet qui permet de recuperer les données de la base de donnée
 		$db= new MembreModel;
+		$MembreConnecte = $this->getUser();
 
 		 // on redéfinit le nom de la clé primaire de la table
 		$db->setPrimaryKey('id_membre');
-
-		$UnMembre = $db->getMembre(1) ;
+		$UnMembre = $db->getMembre($MembreConnecte['id_membre']);
 
 		// je vais appeler la vue "profil" et envoyer les données dans le dossier "membre"
 		$this->show('membre/profil',['membre'=> $UnMembre]);
@@ -32,8 +34,8 @@ class MembreController extends Controller
 			// -- Si la méthode post est détecté
 			if($_POST) {
 
-			//pour l'essai
-			$ID_MEMBRE = 1;
+			
+			$ID_MEMBRE = $this->getUser();
 
 
 			//$ID_MEMBRE = $MembreConnecte->getId();
@@ -66,9 +68,8 @@ class MembreController extends Controller
 
 				);
 			
-			// -- J'appelle la méthode update du model
-			$db->update($data, $ID_MEMBRE);
-
+				// -- J'appelle la méthode update du model
+			$db->update($data, $ID_MEMBRE['id_membre']);
 			// -- Je modifie l'utilisateur en session par les nouvelles informations soumises ... Pour que l'utilisateur en session soit mise a jour ...
 
 			// -- Parce qu'au moment de la connexion on a stocker les infos de l'utilisateur, mais comme il vient de les modifiers, celle stocker en sesison ne sont plus les bonnes ...
@@ -108,11 +109,8 @@ class MembreController extends Controller
 
 
 	public function supprimer() {
-		$MembreConnecte = $this->getUser();
-			
 
-		
-			$ID_MEMBRE = 1;
+		 $ID_MEMBRE = $this->getUser();
 
 
 			//$ID_MEMBRE = $MembreConnecte->getId();
@@ -120,8 +118,10 @@ class MembreController extends Controller
 			$db->setPrimaryKey('id_membre');
 			$db->setTable('membre');
 
-			$db->delete($ID_MEMBRE);
+			$db->delete($ID_MEMBRE['id_membre']);
 			$this->redirectToRoute('default_home');
 
 	}
 }
+
+

@@ -19,11 +19,9 @@ class MembreModel extends \W\Model\Model {
 			$Membre['pseudo'],
 			$Membre['mail'],
 			$Membre['nationalite'],
-			$Membre['date_naissance'],
+			$Membre['age_public'],
 			$Membre['genre'],
-			$Membre['photo'],
-			$Membre['autre'],
-			$Membre['age_public']
+			$Membre['photo']
 			);
 
 		return $ObjetMembre;
