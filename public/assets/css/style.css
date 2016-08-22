@@ -1,5 +1,4 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat';
-@import 'https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans';
 
 body {
   font-family: 'Montserrat', Consolas, monaco, monospace, sans-serif;
@@ -17,7 +16,6 @@ nav ul {
 	padding: 20px;
 	text-align: right;
 	z-index: 99;
-	visibility: hidden;
 }
 
 nav ul li {
@@ -33,7 +31,6 @@ nav ul li a {
 main {
 	background-color: #2f2e3d;
 }
-
 
 footer ul:before {
 	background: #e6e6e5;
@@ -68,140 +65,6 @@ footer ul li {
 footer p {
 	margin-top: 30px;
 }
-
-/*******************************************
-        	STYLE DE LA PAGE SUJET
-*******************************************/
-
-#theme_sujet {
-	margin: auto;
-	width: 80%;
-}
-
-/*
-.barreRecherche {
-	Appelée depuis le JS
-}
-*/
-
-/*
-#grid {
-	Identifiant appelé depuis 
-	}
-*/
-
-.comments {
-	width: 60%;
-	float: left;
-}
-
-.float_right {
-	float: right;
-}
-
-.membre {
-	padding: 20px;
-	float: left;
-}
-
-.membre img {
-	width: 20%;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	float: left;
-}
-
-article.tabs
-{
-	position: relative;
-	display: block;
-	width: 100%;
-
-	margin: 2em auto;
-}
-
-article.tabs section
-{
-	position: absolute;
-	display: block;
-	top: 1.8em;
-	left: 0;
-	padding: 10px 20px;
-	background-color: #ddd;
-	border-radius: 5px;
-	box-shadow: 0 3px 3px rgba(0,0,0,0.1);
-	z-index: 0;
-	width: 100%;
-}
-
-article.tabs section:first-child
-{
-
-	z-index: 1;
-}
-
-article.tabs section h2
-{
-	position: absolute;
-	font-size: 1em;
-	font-weight: normal;
-	width: 120px;
-	top: -1.8em;
-	left: 10px;
-	padding: 0;
-	margin: 0;
-	color: #999;
-	background-color: #ddd;
-	border-radius: 5px 5px 0 0;
-}
-
-article.tabs section:nth-child(2) h2
-{
-	left: 132px;
-}
-
-article.tabs section:nth-child(3) h2
-{
-	left: 254px;
-}
-
-article.tabs section h2 a
-{
-	display: block;
-	width: 100%;
-	line-height: 1.8em;
-	text-align: center;
-	text-decoration: none;
-	color: inherit;
-	outline: 0 none;
-}
-
-article.tabs section:target,
-article.tabs section:target h2
-{
-	color: #333;
-	background-color: #fff;
-	z-index: 2;
-}
-
-article.tabs section,
-article.tabs section h2
-{
-	-webkit-transition: all 500ms ease;
-	-moz-transition: all 500ms ease;
-	-ms-transition: all 500ms ease;
-	-o-transition: all 500ms ease;
-	transition: all 500ms ease;
-}
-
-
-
-
-
-
-
-
-
 
 /*******************************************
         STYLE PAR DÉFAUT DU FRAMEWORK W
@@ -258,22 +121,9 @@ main.sujet {
 	background-color: #f4f4ef;
 }
 
-.cgu
-{
-	margin: auto; 
-	width: 50%; 
-}
 
-#bandeau {
-	margin: 30px 0;
-	width: 100%;
-	background-color: #E3E7E8;
-	color: #919E9E;
-	font-size: 2em;
-	text-align: center;
-	font-family: 'Helvetica', sans serif; text-transform: uppercase;
-	letter-spacing: 0.1em;
-}
+
+
 
 
 
@@ -337,7 +187,8 @@ div.home {
 .picture-item {
 height: 220px;
 margin-top: 4px;
-margin-left: 0;   /* Aucune marge à gauche */
+margin-left: 0; 
+  /* Aucune marge à gauche */
 }
 
 .picture-item img {
@@ -433,7 +284,9 @@ display: block; }
 img {
 display: block;
 max-width: 100%;
-height: auto; }
+// height: auto;
+padding: 15px;
+}
 
 figure {
 margin: 0; }
@@ -883,12 +736,10 @@ margin-left: 83.33333%; }
 margin-left: 91.66667%; }
 .col-offset-12\@sm {
 margin-left: 100%; }
-
-
 .container {
 padding-left: 7%;
-padding-right: 7%;
-}
+padding-right: 7%; }
+
 
 .row {
 max-width: 1200px;
@@ -1267,6 +1118,193 @@ margin-bottom: 40px; }
 
 
 
+/*******************************************
+				PAGE PROFIL
+*******************************************/
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Merienda+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+@import url(https://fonts.googleapis.com/css?family=Cantarell);
+
+
+.style-nav {
+	background-color: #80D0D0; 
+	height: 50px; 
+	width: 100%; 
+	float:left; 
+	margin-bottom: 10px; 
+	margin-top: 0px;
+/*	position: fixed;*/
+}
+
+
+.menu_links {
+
+/*	background-color: #fff; 
+	height: 50px; 
+	width: 100%; 
+	position: relative;
+	text-align: center;
+	margin-bottom: 0;
+	list-style: none;
+	list-style-type: none;*/
+
+	background-color: #FFF;
+/*	position: fixed;
+*/	width: 100%;
+	right: 0;
+	top: 0;
+	margin: 0;
+	padding: 20px;
+	display: inline-block;
+	text-align: center;
+	z-index: 99;
+}
+
+.menu_links li {
+	display: inline;
+}
+
+
+.menu_links li a {
+
+/*text-decoration: none;
+color: red;
+display: inline-block;
+text-align: center;
+list-style-type: none;
+margin-left: 30px;
+margin-right : 30px;*/
+
+	display: inline;
+	margin: 0 15px;
+	color: red;
+	text-decoration: none;
+
+}
+
+
+#name {
+margin-top: 0px;
+font-family: 'Cantarell', sans-serif;
+font-size: 20px;
+color : #000;
+
+}
+
+
+span {
+text-align: center;
+}
+
+
+
+
+#sujets {
+text-align: center;
+}
+
+
+
+
+#comments {
+font-size: 12px;
+text-align: left;
+}
+
+
+#container_profil {
+
+/*background-image: url(<?php echo $this->assetUrl('img/prism.jpg'); ?>);
+background-repeat: no-repeat; 
+background-size: cover;*/
+
+position: relative;
+}
+
+
+.brand-logo {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 2.1rem;
+  padding: 0;
+  white-space: nowrap;
+
+}
+
+#age,
+#sexe,
+#pays,
+#contact,
+#citation,
+#reseau {
+
+font-size: 10px;
+display: inline;
+
+}
+
+#pseudo {
+
+padding-top: 10px;	
+}
+
+
+
+
+.button_nd {
+	color : #fff;
+}
+
+.polaroid {
+  position: relative;
+  width: 220px;
+  margin: auto;
+
+  	 border: 10px solid #fff;
+  	border-bottom: 45px solid #fff;
+  -webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+}
+
+
+.polaroid img {
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* STYLE DE LA FENÊTRE MODAL INSCRIPTION-CONNEXION */
 
 /* The Modal (background) */
@@ -1337,7 +1375,7 @@ margin-bottom: 40px; }
 .modal-body 
 {
 	padding: 2px 16px;
-	height:550px;
+	height:350px;
 	background-color:fff;
 	color:#2C3E50;
 
@@ -1352,23 +1390,19 @@ margin-bottom: 40px; }
 
 .formulaire 
 {
-	width:24%;
+	width:30%;
 	float:left;
-	margin-left:40px;
-	height:450px;
+	margin-left:100px;
+	height:300px;
 	border: 0.5 solid #2C3E50;
 	padding-top:20px;
+	padding-left:30px;
 }
 
-.formulaire h5
-{
-
-	text-align: left;
-}
 .m-img
 {
 	float:left;
-	width:23%;
+	width:25%;
 }
 .formulaire  label, .formulaire input
 {
@@ -1377,12 +1411,12 @@ margin-bottom: 40px; }
 .formulaire  label
 {
 	text-align:left;
-	margin-top:25px;
+	margin-top:15px;
 
 }
 .formulaire input
 {
-	width:60%;
+	width:40%;
 	padding:3px;
 	margin-bottom:5px;
 }
@@ -1392,58 +1426,24 @@ margin-bottom: 40px; }
 	background-color:  #2C3E50;
 	color: #fff;
 	border: none;
-	margin-top: 30px;
+	margin-top: 50px;
 }
 
 .modal-reseaux
 {
-	width:23%;
+	width:35%;
 	height:200px;
 	float:left;
 	margin-top:80px;
+	padding:30px;
 }
 
-.section1,.section2,.section3
+.logo1,.logo2,.logo3
 {
 	float:left;
-	width:20%;
-	padding-left: 20px;
-	padding-top: 50px;
+	width:33%;
 	
 }
 
-/* BALISES CGU & PLAN DU SITE*/
-p{
-	font-size: .9em;
-	font-family: 'Open Sans', sans-serif;
-    font-family: 'Droid Sans', sans-serif;
-}
-
-a{
-	text-decoration: none;
-}
-
-
-a:visited{
-	text-decoration: none;
-	color:#000;
-}
-
-hr{
-	width: 50%;
-	border: .5 solid #f4f4ef;
-	float: left;
-}
-
-.msg-error
-{
-	font-size: .7em;
-	font-family: 'Open Sans', sans-serif;
-    font-family: 'Droid Sans', sans-serif;
-    font-weight: bold;
-    color: #34828E;
-    text-align: left;
-    float: left;
-}
 
 

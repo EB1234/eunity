@@ -16,8 +16,17 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link href='http://fonts.googleapis.com/css?family=Mr+Dafoe' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Amaranth:700' rel='stylesheet' type='text/css'>
+
+	
+
+
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
-</head>
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/slideshow.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/font-awesome.min.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/font-awesome.css') ?>">
+
 
 <body>
 	<header>
@@ -88,8 +97,16 @@
 	<script src="<?= $this->assetUrl('js/homepage.js'); ?>"></script>
 	<script src="<?= $this->assetUrl('js/weloveu.js'); ?>"></script>
 	<script src="<?= $this->assetUrl('js/wmodal2.js'); ?>"></script>
+	<script src="<?= $this->assetUrl('js/carroussel.js'); ?>"></script>
+
+
+
+
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<script src="<?= $this->assetUrl('js/main-formulaire.js'); ?>"></script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="<?= $this->assetUrl('js/bootstrap.min.js'); ?>"></script>
 
 	</body>
 </html>
