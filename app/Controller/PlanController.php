@@ -15,3 +15,4 @@ class PlanController extends Controller
 	}
 
 }
+?>

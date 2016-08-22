@@ -17,7 +17,6 @@ nav ul {
 	padding: 20px;
 	text-align: right;
 	z-index: 99;
-	visibility: hidden;
 }
 
 nav ul li {
@@ -68,140 +67,6 @@ footer ul li {
 footer p {
 	margin-top: 30px;
 }
-
-/*******************************************
-        	STYLE DE LA PAGE SUJET
-*******************************************/
-
-#theme_sujet {
-	margin: auto;
-	width: 80%;
-}
-
-/*
-.barreRecherche {
-	Appelée depuis le JS
-}
-*/
-
-/*
-#grid {
-	Identifiant appelé depuis 
-	}
-*/
-
-.comments {
-	width: 60%;
-	float: left;
-}
-
-.float_right {
-	float: right;
-}
-
-.membre {
-	padding: 20px;
-	float: left;
-}
-
-.membre img {
-	width: 20%;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	float: left;
-}
-
-article.tabs
-{
-	position: relative;
-	display: block;
-	width: 100%;
-
-	margin: 2em auto;
-}
-
-article.tabs section
-{
-	position: absolute;
-	display: block;
-	top: 1.8em;
-	left: 0;
-	padding: 10px 20px;
-	background-color: #ddd;
-	border-radius: 5px;
-	box-shadow: 0 3px 3px rgba(0,0,0,0.1);
-	z-index: 0;
-	width: 100%;
-}
-
-article.tabs section:first-child
-{
-
-	z-index: 1;
-}
-
-article.tabs section h2
-{
-	position: absolute;
-	font-size: 1em;
-	font-weight: normal;
-	width: 120px;
-	top: -1.8em;
-	left: 10px;
-	padding: 0;
-	margin: 0;
-	color: #999;
-	background-color: #ddd;
-	border-radius: 5px 5px 0 0;
-}
-
-article.tabs section:nth-child(2) h2
-{
-	left: 132px;
-}
-
-article.tabs section:nth-child(3) h2
-{
-	left: 254px;
-}
-
-article.tabs section h2 a
-{
-	display: block;
-	width: 100%;
-	line-height: 1.8em;
-	text-align: center;
-	text-decoration: none;
-	color: inherit;
-	outline: 0 none;
-}
-
-article.tabs section:target,
-article.tabs section:target h2
-{
-	color: #333;
-	background-color: #fff;
-	z-index: 2;
-}
-
-article.tabs section,
-article.tabs section h2
-{
-	-webkit-transition: all 500ms ease;
-	-moz-transition: all 500ms ease;
-	-ms-transition: all 500ms ease;
-	-o-transition: all 500ms ease;
-	transition: all 500ms ease;
-}
-
-
-
-
-
-
-
-
-
 
 /*******************************************
         STYLE PAR DÉFAUT DU FRAMEWORK W
@@ -264,16 +129,7 @@ main.sujet {
 	width: 50%; 
 }
 
-#bandeau {
-	margin: 30px 0;
-	width: 100%;
-	background-color: #E3E7E8;
-	color: #919E9E;
-	font-size: 2em;
-	text-align: center;
-	font-family: 'Helvetica', sans serif; text-transform: uppercase;
-	letter-spacing: 0.1em;
-}
+
 
 
 
@@ -883,12 +739,10 @@ margin-left: 83.33333%; }
 margin-left: 91.66667%; }
 .col-offset-12\@sm {
 margin-left: 100%; }
-
-
 .container {
 padding-left: 7%;
-padding-right: 7%;
-}
+padding-right: 7%; }
+
 
 .row {
 max-width: 1200px;

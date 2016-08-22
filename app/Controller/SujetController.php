@@ -4,112 +4,97 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use Model\SujetModel;
-use Controller\AffichageCommentaireController;
+use Model\CentreInteretModel;
+use Model\SalonModel;
+
 
 class SujetController extends Controller
 {
 
 	/**
-	 * Page d'accueil par défaut
+	 * Page sujet selectionnée
 	 */
+	public function sujet($id_sujet)
+		{
+		
+		//on crée un nouvel objet qui permet de recuperer les données de la base de donnée
+		$db = new SujetModel;
+		$db->setTable('sujet_ci');
+		$db->setPrimaryKey('id_sujet');
+	
 
-	public function sujet($id = ""){
+		//on récupere l'id dans l'url et on fait afficher le sujet choisi 
+		$UnSujet = $db->getSujet($id_sujet);
+		
+	 	$sal = new SalonModel;
+		$sal->setTable('sujet_plusieurs_salons');
+		$sal->setPrimaryKey('id_salon');
+			//on recupere la liste des salons pour un sujet
+		$listeDeSalons = $sal-> getSalonFromSujet($id_sujet);
+		
 
-		$dbAffichage = new SujetModel;
-		$dbAffichage->setTable('sujet');
-		$dbAffichage->SetPrimaryKey('id_sujet');
+	 	$this->show('membre/sujet',array(
+					'ListeDeSalons'=> $listeDeSalons,
+					'sujet' => $UnSujet));
 
-		$affichage = $dbAffichage->find($id);
 
-		// $CommentaireController = new CommentaireController();
-
-		$loggedUser = $this->getUser();		
-		$this->show('sujet/sujet',['loggedUser'=>$loggedUser, 'id' => $id, 'affichage' => $affichage, 'affichageCommentaire' => AffichageCommentaireController::AffichageCommentaireSujet($id)]);
-
+		
+	
 	}
 
-	public function gestionSujet($slug ="", $id = ""){
+		// la liste de toute les categorie, dans la vue tu n'a pas forcement toutes les catégories ... Donc la liste se récupérer directement dans la table concerné !
 
-		$modification = "";
-		$tousSujets = new SujetModel;
+	
+	public function categorie($id_centre_interet)
+	{
+		$db = new SujetModel;
+		$db->setTable('sujet_ci');
+		$db->setPrimaryKey('id_sujet');
+		
+		//on récupere l'id dans l'url et on fait afficher la liste des sujets de la catégorie choisie
+		
+		$ListeDesSujetsDeMaCategorie = $db->getSujetFromCategory($id_centre_interet);
+		var_dump($ListeDesSujetsDeMaCategorie); 
 
 
-		//SUPRESSION
-		if ($slug == "suppression"){
+		$CI = new CentreInteretModel;
+		$CI->setTable('centre_interet');
+		$CI->setPrimaryKey('id_centre_interet');
 
-			$dbSuppr = new SujetModel;
-			$dbSuppr->setTable('sujet');
-			$dbSuppr->setPrimaryKey('id_sujet');
-			$dbSuppr->delete($id);
+		$ListeDeMesCI = $CI->findAll();
 
-			$this->redirectToRoute('gestion_sujet');
+		$this->show('default/home', array(
+			'ListeDeSujets' => $ListeDesSujetsDeMaCategorie,
+			'ListeDeMesCI'  => $ListeDeMesCI
+		));
 
-		}
-
-		else {
-
-			$dbModif = new SujetModel;
-			$dbModif->setTable('sujet');
-			$dbModif->setPrimaryKey('id_sujet');
-
-			$modification = $dbModif->find($id);
-
-			if ($_POST) {
-
-				//MODIF
-				if (isset($_POST['id_sujet'])){
-
-					$nom_photo = $_FILES['photo']['name'];
-					$photo_bdd = '\USER\convenio-cafe\public\assets\upload\sujet\/' . $nom_photo;
-
-					$photo_dossier = $_SERVER['DOCUMENT_ROOT'] . $photo_bdd;
-
-					$data = array(
-						// 'id_sujet'			=> null,
-						'nom_sujet' 		=> $_POST['titre'],
-						'id_centre_interet'	=> null,
-						'photo_sujet' 		=> $_POST['photo_actuelle'],
-						'description_sujet'	=> $_POST['description']
-					);
-					
-					if (!empty($nom_photo)){	
-						copy($_FILES['photo']['tmp_name'], $photo_dossier);
-						$data['photo_sujet'] = $nom_photo;
-					}
-
-					$data = $dbModif->update($data, $_POST['id_sujet']);
-
-				}
-
-				//AJOUT
-				else {
-
-					$db = new SujetModel;
-					$db->setTable('sujet');
-					$db->setPrimaryKey('id_sujet');
-
-					$nom_photo = $_FILES['photo']['name'];
-					$photo_bdd = '\USER\convenio-cafe\public\assets\upload\sujet\/' . $nom_photo;
-
-					$photo_dossier = $_SERVER['DOCUMENT_ROOT'] . $photo_bdd;
-
-					copy($_FILES['photo']['tmp_name'], $photo_dossier);
-
-					$data = array(
-						'id_sujet'			=> null,
-						'nom_sujet' 		=> $_POST['titre'],
-						'id_centre_interet'	=> null,
-						'photo_sujet' 		=> $photo_bdd,
-						'description_sujet'	=> $_POST['description']
-					);
-
-					$data = $db->insert($data);
-					
-				}
-
-			}
-		}
-
-		$this->show('sujet/ajoutModificationSujet',['tousSujets'=> $tousSujets->getTousSujets(), 'id' => $id, 'slug' => $slug, 'modification' => $modification]);
 	}
+	// public function salon(){
+		
+		// $Sal = new SalonModel;
+		// $ListeDeSujets = $sal->getListeDeSalons();
+		// $this->show('membre/sujet',['ListeDeSalons' => $ListeDeSalons]);
+	// }
+	// public function salon($id_salon)
+	// {
+		// $sal = new SujetModel;
+		// $sal->setTable('sujet_plusieurs_salons');
+		// $sal->setPrimaryKey('id_salon');
+		
+
+		// $ListeDeSalons = $sal->findAll();
+
+		// $this->show('membre/sujet',['salon'=> $ListeDeSalons]);
+		
+
+	// }
+
+	// public function profil()
+	// {
+		// $this->show('membre/sujet');
+
+
+	// }
+
+
 }

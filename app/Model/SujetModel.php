@@ -1,51 +1,96 @@
 <?php 
 namespace Model;
 use Model\Sujet;
+use Model\Salon;
+
 
 class SujetModel extends \W\Model\Model {
-
 	private $_listeSujet;
+	private $_listeSalons;
 
 	public function getSujet($idSujetARecuperer){
 
-		$sujet = $this->find($idSujetARecuperer);
+		$sujet= $this ->find($idSujetARecuperer);
+
 
 		$ObjetSujet = new Sujet (
 			$sujet['id_sujet'],
 			$sujet['nom_sujet'],
-			$sujet['id_centre_interet'],
 			$sujet['photo_sujet'],
-			$sujet['description_sujet']
+			$sujet['description_sujet'],
+			$sujet['id_centre_interet'],
+			$sujet['nom_ci']
 			);
-
         return $ObjetSujet;
 
 	}
 
-	public function getTousSujets() {
-		
-		$this->setTable('sujet');
+ //on crée un model pour le CI ET ON RENVOIE LA LISTE AU SujetController
+	public function getSujetFromCategory($idCategorie){
 
-		$this->setPrimaryKey('id_sujet');
-
-		$TousSujets = $this->findAll();
+		//Renvoie la liste des sujets pour la catégorie passer en parametre
+		$TousSujets = $this->search(array('id_centre_interet' => $idCategorie));
 
 		foreach ($TousSujets as $sujet) {
-
-			$this->_listeSujet[] = new Sujet (
-				$sujet['id_sujet'],
-				$sujet['nom_sujet'],
-				$sujet['id_centre_interet'],
-				$sujet['photo_sujet'],
-				$sujet['description_sujet']
+		$this->_listeSujet[] = new Sujet (
+			
+			$sujet['id_sujet'],
+			$sujet['nom_sujet'],
+			$sujet['photo_sujet'],
+			$sujet['description_sujet'],
+			$sujet['id_centre_interet'],
+			$sujet['nom_ci']
+			
 			);
-
 		}
 
         return $this->_listeSujet;
+
 	}
 
-	public function suppressionSujet(){
-		
+
+		public function getTousSujets() {
+			
+		$this->setTable('sujet_ci');
+		$this->setPrimaryKey('id_sujet');
+		$TousSujets = $this->findAll();
+
+		foreach ($TousSujets as $sujet) {
+		$this->_listeSujet[] = new Sujet (
+			$sujet['id_sujet'],
+			$sujet['nom_sujet'],
+			$sujet['photo_sujet'],
+			$sujet['description_sujet'],
+			$sujet['id_centre_interet'],
+			$sujet['nom_ci']
+			);
+		}
+
+        return $this->_listeSujet;
+
 	}
+
+// 	public function getListeSalons(){
+
+// 		$this->setTable('sujet_plusieurs_salons');
+// 		$this->setPrimaryKey('id_salon');
+// 		$TousSalons = $this->findAll();
+
+// 		foreach ($TousSalons as $salon) {
+// 			$this->_listeSalons[] = new Salon (
+// 			$salon['id_salon'],
+// 			$salon['lieu_rdv'],
+// 			$salon['date_rdv'],
+// 			$salon['id_membre'],
+// 			$salon['nom'],
+// 			$salon['photo'],
+// 			$salon['id_sujet']
+// 			);
+// 	}
+// 	return $this->_listeSalons;
+// }
 }
+
+
+
+

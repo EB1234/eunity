@@ -1,25 +1,27 @@
-<?php
+<?php 
 namespace Model;
-use Model\Salon;
 
-class SalonModel extends \W\Model\Model{
+class SalonModel extends \W\Model\Model {
 
-	public function getSalon($idSalon){
+		//renvoie la liste des salons pour un sujet
+	public function getSalonFromSujet($idSujet){
+		 $TousSalons = $this->search(array('id_sujet' => $idSujet));
 
-		$salon = $this->find($idSalon);
+		foreach ($TousSalons as $salon) {
+			 $this->_listeSalons[] = new Salon (
+			 $salon['id_salon'],
+			 $salon['lieu_rdv'],
+			 $salon['date_rdv'],
+			 $salon['open_close'],
+			 $salon['id_membre_maitre'],
+			 $salon['nom'],
+			 $salon['photo'],
+			 $salon['id_sujet']
+			 );
+		 }
 
-		$ObjetSalon = new Salon(
-			$salon['id_salon'],
-			$salon['id_sujet'],
-			$salon['nombre_participants'],
-			$salon['id_membre_maitre'],
-			$salon['lieu_rdv'],
-			$salon['date_rdv'],
-			$salon['heure_rdv']
-		);
+         return $this->_listeSalons;
 
-		return $ObjetSalon;
-
-	}
-
+	 }
 }
+
