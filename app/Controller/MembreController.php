@@ -25,6 +25,24 @@ class MembreController extends Controller
 		
 	}
 
+	public function profil_2()
+	{
+		//on crée un nouvel objet qui permet de recuperer les données de la base de donnée
+		$db= new MembreModel;
+		$db->setTable('membre');
+		$db->setPrimaryKey('id_membre');
+
+		// -- Récupération du membre en session ...
+		$MembreConnecte = $this->getUser();
+		$ID_MEMBRE = $MembreConnecte['id_membre'];
+
+		$UnMembre = $db->getMembre(1);
+
+		// je vais appeler la vue "profil" et envoyer les données dans le dossier "membre"
+		$this->show('membre/profil_2',['membre'=> $UnMembre]);
+		
+	}
+
 	public function modifier()
 	{
 			
