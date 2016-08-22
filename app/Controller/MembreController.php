@@ -4,6 +4,8 @@ namespace Controller;
 // permet d'utiliser les fichiers ( une sorte d'inclusion )
 use \W\Controller\Controller;
 use Model\MembreModel;
+use Model\Membre;
+use Controller\InscriptionController;
 
 class MembreController extends Controller
 {
@@ -12,37 +14,16 @@ class MembreController extends Controller
 	{
 		//on crée un nouvel objet qui permet de recuperer les données de la base de donnée
 		$db= new MembreModel;
+		$MembreConnecte = $this->getUser();
 
 		 // on redéfinit le nom de la clé primaire de la table
 		$db->setPrimaryKey('id_membre');
-
-		$UnMembre = $db->getMembre(1) ;
+		$UnMembre = $db->getMembre($MembreConnecte['id_membre']);
 
 		// je vais appeler la vue "profil" et envoyer les données dans le dossier "membre"
 		$this->show('membre/profil',['membre'=> $UnMembre]);
 		
 	}
-
-
-
-
-			public function profil_2()
-	{
-		//on crée un nouvel objet qui permet de recuperer les données de la base de donnée
-		$db= new MembreModel;
-
-		 // on redéfinit le nom de la clé primaire de la table
-		$db->setPrimaryKey('id_membre');
-
-		$UnMembre = $db->getMembre(1) ;
-
-		// je vais appeler la vue "profil" et envoyer les données dans le dossier "membre"
-		$this->show('membre/profil_2',['membre'=> $UnMembre]);
-		
-	}
-
-
-	
 
 	public function modifier()
 	{
@@ -53,8 +34,8 @@ class MembreController extends Controller
 			// -- Si la méthode post est détecté
 			if($_POST) {
 
-			//pour l'essai
-			$ID_MEMBRE = 1;
+			
+			$ID_MEMBRE = $this->getUser();
 
 
 			//$ID_MEMBRE = $MembreConnecte->getId();
@@ -87,9 +68,8 @@ class MembreController extends Controller
 
 				);
 			
-			// -- J'appelle la méthode update du model
-			$db->update($data, $ID_MEMBRE);
-
+				// -- J'appelle la méthode update du model
+			$db->update($data, $ID_MEMBRE['id_membre']);
 			// -- Je modifie l'utilisateur en session par les nouvelles informations soumises ... Pour que l'utilisateur en session soit mise a jour ...
 
 			// -- Parce qu'au moment de la connexion on a stocker les infos de l'utilisateur, mais comme il vient de les modifiers, celle stocker en sesison ne sont plus les bonnes ...
@@ -129,11 +109,8 @@ class MembreController extends Controller
 
 
 	public function supprimer() {
-		$MembreConnecte = $this->getUser();
-			
 
-		
-			$ID_MEMBRE = 1;
+		 $ID_MEMBRE = $this->getUser();
 
 
 			//$ID_MEMBRE = $MembreConnecte->getId();
@@ -141,64 +118,10 @@ class MembreController extends Controller
 			$db->setPrimaryKey('id_membre');
 			$db->setTable('membre');
 
-			$db->delete($ID_MEMBRE);
+			$db->delete($ID_MEMBRE['id_membre']);
 			$this->redirectToRoute('default_home');
 
 	}
 }
 
-Class Membre {
-	private $_nom;
-	private $_prenom;
-	private $_pseudo;
-	private $_mail;
-	private $_nationalite;
-	private $_age;
-	private $_genre;
-	private $_photo;
 
-		public function __construct($nom,$prenom,$pseudo,$mail,$nationalite,$age,$genre,$photo) {
-		
-		//J'utilise le mot clé $this car il fait référence à mon objet courant.
-
-		//La propriété nom de ma Classe membre, va prendre pour valeur, la valeur transmise au constructeur au moment de l'instanciation.
-		$this->_nom 		= $nom;
-
-		//On va procéder de la meme façon pour les autres propriétés.
-		$this->_prenom 		= $prenom;
-		$this->_pseudo 		= $pseudo;
-		$this->_mail 		= $mail;
-		$this->_nationalite = $nationalite;		
-		$this->_age         = $age;
-		$this->_genre       = $genre;
-		$this->_photo       = $photo;
-	}
-	//Getters : Ce sont des fonctions me permettant de retourner la propriété de ma classe. Il y aura donc un getter par propriété.
-	public function getNom() {
-		//Ici, le Getter va me renvoyer via "return" la valeur de la propriété nomEcole. On procède à l'identique pour chaque propriété.
-		return $this->_nom;
-	}
-
-	public function getPrenom() {
-		return $this->_prenom;
-	}
-	public function getPseudo() {
-		return $this->_pseudo;
-	}
-	public function getMail() {
-		return $this->_mail;
-	}
-	public function getNationalite() {
-		return $this->_nationalite;
-	}
-	public function getAge() {
-		return $this->_age;
-	}
-	public function getGenre() {
-		return $this->_genre;
-	}
-	public function getPhoto() {
-		return $this->_photo;
-	}
-
-}

@@ -1,13 +1,10 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat';
 @import 'https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans';
 
-
 body {
   font-family: 'Montserrat', Consolas, monaco, monospace, sans-serif;
   margin: 0;
   padding: 0;
-  width:100%;
-  min-height:100%;
 }
 
 nav ul {
@@ -43,8 +40,8 @@ footer ul:before {
 	height: 1px;
 	position: absolute;
 	top: 0;
-	width: 40%;	
 	/*width: 1184px;*/
+	width: 40%;
 }
 
 footer ul {	
@@ -65,18 +62,6 @@ footer ul li {
 	padding: 5px 0;
 	text-align: center;
 	width: 30%;
-}
-
-footer ul li a{
-	color:#2f2e3d;
-}
-
-footer ul li a:hover{
-	color:#34828E;
-}
-
-footer ul li a:visited{
-	color:red;
 }
 
 footer p {
@@ -136,17 +121,15 @@ div.home_sujet {
 
 main.sujet {
 	background-color: #f4f4ef;
-	min-height:100%;
 }
 
 .cgu
 {
 	margin: auto; 
 	width: 50%; 
-	padding-top: 50px;
-	min-height: 100%;
-	padding-bottom:50px;
 }
+
+
 
 
 
@@ -1171,8 +1154,6 @@ margin-bottom: 40px; }
 	color:#2C3E50;
 }
 
-
-
 /* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0} 
@@ -1213,6 +1194,8 @@ margin-bottom: 40px; }
 	height:550px;
 	background-color:fff;
 	color:#2C3E50;
+
+/*     background-color: rgba(32,178,170,0.6); */
 }
 
 .modal-footer {
@@ -1230,7 +1213,6 @@ margin-bottom: 40px; }
 	border: 0.5 solid #2C3E50;
 	padding-top:20px;
 }
-
 
 .formulaire h5
 {
@@ -1250,8 +1232,8 @@ margin-bottom: 40px; }
 {
 	text-align:left;
 	margin-top:25px;
-}
 
+}
 .formulaire input
 {
 	width:60%;
@@ -1293,16 +1275,14 @@ p{
 
 a{
 	text-decoration: none;
-	color:#34828E;
 }
 
 
-/*a:visited
-{
+a:visited{
 	text-decoration: none;
-	color:#34828E;
+	color:#000;
 }
-*/
+
 hr{
 	width: 50%;
 	border: .5 solid #f4f4ef;
@@ -1314,167 +1294,10 @@ hr{
 	font-size: .7em;
 	font-family: 'Open Sans', sans-serif;
     font-family: 'Droid Sans', sans-serif;
+    font-weight: bold;
     color: #34828E;
     text-align: left;
     float: left;
 }
 
-/*	STYLE FORMULAIRE DE CONTACT*/
-
-.contact
-{
-	margin: auto; 
-	width: 100%; 
-	padding-top: 50px;
-	padding-bottom: 30px;
-}
-.container-contact
-{
-	width: 50%; 
-	padding-top: 40px;
-	float:left;
-	background-color: #f4f4ef;
-
-}
-.container-contact2
-{
-	width: 50%; 
-	padding-top: 40px;
-	float:left;
-	background-color: #f4f4ef;
-}
-
-.formulaire-contact
-{
-	margin-left:150px;
-	width:80%;
-	height:600px;
-	border: 0px solid #2C3E50;
-	padding:15px 50px;
-
-}
-
- .contact-message
-{
-	z-index:1;
-	width:60%;
-	height:50;
-	margin-left:200px;
-	padding:20px;
-	color: #fff;
-	background-color:#34828E; 
-	/*background-color: rgba(44,62,80,0.8);*/
-}
-
-
-.container-contact h3 
-{
-	margin-left: 200px;
-}
-
-.container-contact2 h3
-{
-	margin-left: 150px;
-}
-
-.formulaire-contact input
-{
-	width:40%;
-	margin-bottom:5px;
-}
-
-.formulaire-contact label, .formulaire-contact input
-{
-	display: block;
-
-}
-.formulaire-contact label
-{
-	text-align:left;
-	margin-top:20px;
-
-}
-.art1
-{	
-	height:600px;
-	float: left;
-	padding:0px 0px 0px 150px;
-
-}
-
-.art1>article>
-{
-	float:left;
-	width:350px;
-}
-
-iframe
-{
-	margin-top:20px;
-	margin-bottom: 20px;
-	float:left;
-}
-
-
-/* MESSAGE D'INSCRIPTION REUSSIE */
-
-.message-reussi
-{
-	margin: auto; 
-	width: 40%; 
-	padding-top: 150px;
-	min-height: 700px;
-}
-
-.reussie
-{
-	width: 60%;
-	height: 200px;
-	background-color:#278EB1;
-	margin: auto;
-	padding: 20px;
-}
-
-.reussie>h4, .reussie>p
-{
-	color: #fff;
-}
-
-.pseudo-connecte
-{
-	font-size: 1.1em;
-	color: #278EB1;
-	font-weight: bold;
-	text-transform: capitalize;
-}
-
-/*RAJOUT DE COMMENTS PAGE PROFIL PUBLIC (SUJET)*/
-
-.gestio-com-suj
-{
-	margin: auto; 
-	width: 100%; 
-	min-height: 80%;
-	margin-bottom:100px;
-	background-color: #f4f4ef;
-}
-
-.gestion-rigth
-{
-	width:50%;
-	background-color:#ddd;
-	float:left;
-	height:100px;
-}
-
-.gestion-left
-{
-	width:50%;
-	background-color:#eee;
-	float:left;
-	height:100px;
-}
-
-
-/**/
 
