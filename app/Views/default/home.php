@@ -7,10 +7,13 @@
 
 	<div class="home">
 		<div class="triangle-top"></div>
-			<h1>eunity</h1>
+			<div class="bloc_titre"><h1>eunity</h1></div>
 			<input class="barreRecherche" type="search" placeholder="Rechercher">
 		<div class="triangle-bottom"></div>
 	</div>
+
+	<div class="accroche">Site exchange of opinions between European citizens</div>
+	<div class="triangle-bottom-blanc borderR100"></div>
 
 	<div class="row">
 
@@ -22,7 +25,7 @@
 
 	<div class="filter-options">
 		<?php foreach ($ListeDeMesCI as $CI) : ?>
-			<a class="lienCategorie" href="<?= $this->url('categorie', ['id_centre_interet' => $CI['id_centre_interet'] ]) ?>"><?= $CI['nom_ci']; ?></a>
+			<a class="lienCategorie" href="<?= $this->url('categorie', ['id_centre_interet' => $CI['id_centre_interet'] ]) ?>"><?= $CI['nom_ci'] . ' |'; ?></a>
 		<?php endforeach; ?>
 	</div>
 	</div>
@@ -34,7 +37,6 @@
 			$i = 0;
 			$j = 0;
 			$nb  = count($ListeDeSujets);
-
 			while ($j < $nb) {
 		?>
 

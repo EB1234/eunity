@@ -9,7 +9,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="Site d'échange d'opinions entre jeuns adultes de l'Europe permetant de se rencontrer à un endroit de leur choix">
+	<meta name="description" content="Site d'échange d'opinions entre citoyens Européens">
 	<meta name="author" content="Emilie B, Lionel L, Baptiste, Nathalie D, Veronica B">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,7 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/vendor/shuffle.css') ?>">	
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/shuffle.css') ?>">	
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/font-awesome.min.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/font-awesome.css') ?>">
@@ -123,7 +123,6 @@
 
 	<script src="<?= $this->assetUrl('js/shuffle.js'); ?>"></script>
 	<script src="<?= $this->assetUrl('js/homepage.js'); ?>"></script>
-	<script src="<?= $this->assetUrl('js/weloveu.js'); ?>"></script>
 	<script src="<?= $this->assetUrl('js/wmodal2.js'); ?>"></script>
 		<script src="<?= $this->assetUrl('js/wmodal3.js'); ?>"></script>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
