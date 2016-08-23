@@ -3,28 +3,30 @@
 *******************************************/
 
 .picture-item {
-height: 220px;
-margin-top: 4px;
-margin-left: 0;   /* Aucune marge à gauche */
+	height: 220px;
+	margin-top: 4px;
+	margin-left: 0;   /* Aucune marge à gauche */
 }
 
 .picture-item img {
-display: block;
-width: 100%;
-max-width: none;
-height: 100%;
--o-object-fit: cover;
-object-fit: cover;
+	display: block;
+	width: 100%;
+	max-width: none;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
 }
 
 .picture-item__inner {
-position: relative;
-height: 100%;
-overflow: hidden;
-background: #ECF0F1; }
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	background: #ECF0F1;
+}
 
 .picture-item__blur {
-display: none; }
+	display: none;
+}
 
 .picture-item__details,
 .picture-item__description {
@@ -39,36 +41,48 @@ display: none; }
 }
 
 .picture-item__tags {
-margin: 0; }
+	margin: 0;
+}
 
 @media screen and (min-width: 768px) {
+
 	.picture-item--overlay .picture-item__details {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.6);
-	color: white;
-	overflow: hidden; }
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		color: white;
+		overflow: hidden;
+	}
+		
 	.picture-item--overlay .picture-item__description {
-	display: none; }
+		display: none;
+	}
+
 	@supports ((-webkit-filter: blur(1px)) or (filter: blur(1px))) and ((-webkit-clip-path: inset(0 0 0 0)) or (clip-path: inset(0 0 0 0))) {
+
 	.picture-item--overlay .picture-item__blur {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	display: block;
-	-webkit-filter: blur(7px);
-	filter: blur(7px);
-	-webkit-clip-path: inset(170px 0 0 0);
-	clip-path: inset(170px 0 0 0); }
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		display: block;
+		-webkit-filter: blur(3px);
+		filter: blur(7px);
+		-webkit-clip-path: inset(170px 0 0 0);
+		clip-path: inset(170px 0 0 0);
+	}
+
 	.picture-item--overlay .picture-item__details {
-	background: none; }
+		background: none;
+	}
+		
 	.picture-item--overlay .picture-item__tags,
 	.picture-item--overlay .picture-item__title {
-	position: relative;
-	z-index: 2; } }
+		position: relative;
+		z-index: 2;
+	}
 }
 
 @media screen and (max-width: 767px) {
