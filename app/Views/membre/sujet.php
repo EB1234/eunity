@@ -33,15 +33,18 @@
          
 				
 			<?php endforeach; ?>
-
-<h1>Liste des Commentaires</h1>
+<h1>Ecrire un Commentaire</h1>
+            <form method="post">
+                     <textarea name="commentaire" id="commentaire" rows="10" cols="150"></textarea></br>
+                     <input type="submit" value="Envoyer" />
+                </form>
 
             <?php
 
             foreach ($affichageCommentaire as $key => $value) {
                 echo '
                     <div class="membre meetup">
-                        <img src="'.$this->assetUrl('/upload/'.$value->getPhoto()).'">
+                        <img style="width:5%;" src="'.$this->assetUrl('/upload/'.$value->getPhoto()).'">
                         <div class="comments">
                             <em>' . $value->getPseudo() . '</em><br>
                            ' . $value->getCommentaireSujet() . '
@@ -52,6 +55,7 @@
                         </div>
                     </div>';
             }
+
 
             ?>
 

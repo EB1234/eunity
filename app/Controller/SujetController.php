@@ -6,6 +6,7 @@ use \W\Controller\Controller;
 use Model\SujetModel;
 use Model\CentreInteretModel;
 use Model\SalonModel;
+use Model\CommentsModel;
 
 
 class SujetController extends Controller
@@ -16,12 +17,33 @@ class SujetController extends Controller
 	 */
 	public function sujet($id_sujet)
 		{
-		
+			
+			if($_POST) {
+
+				$comment = new CommentsModel;
+				$comment->setPrimaryKey('id_commentaire');
+				$comment->setTable('commentaire_membre');
+				//mettre à l'heure de Paris 
+				$date = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
+				$date = $date->format('Y-m-d H:i:s');
+				//récuperation du membre en session 
+				$Membre = $this->getUser();
+				//Ajout d'un commentaire en BDD
+				$data = array(
+					'id_commentaire'		=> null,
+					'id_membre'				=> $Membre['id_membre'],
+					'id_sujet'				=> $id_sujet,
+					'commentaire_sujet'		=> $_POST['commentaire'],
+					'date_commentaire'		=> $date
+				);
+
+				$comment->insert($data);
+			}
+
 			//on crée un nouvel objet qui permet de recuperer les données de la base de donnée
 			$db = new SujetModel;
 			$db->setTable('sujet_ci');
 			$db->setPrimaryKey('id_sujet');
-		
 
 			//on récupere l'id dans l'url et on fait afficher le sujet choisi 
 			$UnSujet = $db->getSujet($id_sujet);
@@ -29,9 +51,9 @@ class SujetController extends Controller
 		 	$sal = new SalonModel;
 			$sal->setTable('sujet_plusieurs_salons');
 			$sal->setPrimaryKey('id_salon');
+
 				//on recupere la liste des salons pour un sujet
 			$listeDeSalons = $sal-> getSalonFromSujet($id_sujet);
-			
 
 		 	$this->show('membre/sujet',array(
 						'ListeDeSalons'=> $listeDeSalons,
@@ -40,8 +62,6 @@ class SujetController extends Controller
 						));
 	
 		}
-
-		// la liste de toute les categorie, dans la vue tu n'a pas forcement toutes les catégories ... Donc la liste se récupérer directement dans la table concerné !
 
 	
 	public function categorie($id_centre_interet)

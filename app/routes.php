@@ -25,10 +25,8 @@
 		['GET', '/sujet/[:id_sujet]', 'Sujet#sujet', 'sujet'],
 		['GET', '/sujet/[:id_sujet]/', 'Sujet#sujet', 'sujetbis'],
 
-
 		['GET','/categorie/[:id_centre_interet]','Sujet#categorie','categorie'],
 		['GET','/categorie/[:id_centre_interet]/','Sujet#categorie','categoriebis'],
-
 
 		['GET', '/salon/[:id_salon]', 'Sujet#salon', 'salon'],
 		['GET', '/salon/[:id_salon]/', 'Sujet#salon', 'salonbis'],
