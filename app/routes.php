@@ -7,9 +7,10 @@
 		['GET|POST', '/inscription', 'Inscription#inscription', 'inscription'],
 
 		['GET', '/profil', 'Membre#profil', 'profil'],
-		['GET', '/sujet/[:id_sujet]', 'Sujet#sujet', 'sujet'],
+		['GET|POST', '/sujet/[:id_sujet]', 'Sujet#sujet', 'sujet'],
 		['GET','/categorie/[:id_centre_interet]','Sujet#categorie','categorie'],
 		['GET', '/salon/[:id_salon]', 'Sujet#salon', 'salon'],
+	
 
 		['GET|POST','/gestion-sujet', 'Sujet#gestionSujet','gestion_sujet'],
 		// SUPPRESSION D'UN SUJET - AJOUTER UNE CONFIRMATION JQUERY//
