@@ -29,8 +29,21 @@ h2 {
 	color: #66D9EF;
 }*/
 
+/*******************************************
+        POLICES DE LA PAGE HOME
+*******************************************/
+
 @import 'https://fonts.googleapis.com/css?family=Montserrat';
 @import 'https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans';
+
+/*******************************************
+        POLICES DE LA PAGE PROFIL
+*******************************************/
+
+@import url(https://fonts.googleapis.com/css?family=Merienda+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Cantarell);
 
 body {
   font-family: 'Montserrat', Consolas, monaco, monospace, sans-serif;
@@ -42,15 +55,11 @@ body {
 
 /* -- INTERVENTION FORMATEUR -- */
 
-
 header, section, footer {
-	width:100%;
+	width: 100%;
 	height: auto;
 	float: left;
 }
-
-
-
 
 nav ul {
 	width: 100%;
@@ -118,30 +127,42 @@ footer ul li a:visited{
 footer p {
 	margin-top: 30px;
 }
+
 /*******************************************
       PAGE D'ACCUEIL - TITRE & ACCROCHE
 *******************************************/
+a {
+	color: #000;
+}
+
+select {
+	padding: 10px;
+	width: 10%;
+	float: right;
+}
+
 div.home {
 	position: relative;
 	background-image: linear-gradient(-45deg, #FFFFA4 0%, #F5DFAD 25%, #84BDB4 50%, #278EB1 75%, #34828E 100%);
-	color: white;
-	height: 700px;
-	width: 100%;
-	margin: 0;
-	text-align: center;
-	font-size: 0.9em;
+	color: #FFF;
+	height: 400px;
 	overflow: hidden;
 }
 
 div.home h1 {
+	margin: auto;
 	opacity: 0.90;
-	text-transform: lowercase;
 	letter-spacing: -.06em;
-	font-size: 200px;
+	text-align: center;
+	font-size: 7.5em;
+	width: 100px;
 }
 
-div.home h1 span {
-	font-size: 12rem;
+div.home input {
+	display: block;
+	margin: auto;
+	padding: 10px;
+	width: 30%;
 }
 
 .triangle-top {
@@ -177,8 +198,6 @@ div.home h1 span {
 	-webkit-transition: 2.2s ease-out;
 	transition: 2.2s ease-out;
 }
-
-
 
 /*******************************************
                   PAGE SUJET
@@ -273,7 +292,9 @@ main.sujet {
 	width: 50%; 
 }
 
-/* STYLE DE LA FENÊTRE MODAL INSCRIPTION-CONNEXION */
+/*******************************************
+	FENÊTRE MODAL INSCRIPTION-CONNEXION
+*******************************************/
 
 /* The Modal (background) */
 .modal {
@@ -693,14 +714,6 @@ iframe
 				PAGE PROFIL
 *******************************************/
 
-
-
-@import url(https://fonts.googleapis.com/css?family=Merienda+One);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-@import 'https://fonts.googleapis.com/css?family=Montserrat';
-@import url(https://fonts.googleapis.com/css?family=Cantarell);
-
-
 .style-nav {
 	background-color: #80D0D0; 
 	height: 50px; 
@@ -754,7 +767,6 @@ margin-right : 30px;*/
 	margin: 0 15px;
 	color: red;
 	text-decoration: none;
-
 }
 
 
@@ -768,18 +780,12 @@ color : #000;
 
 
 span {
-text-align: center;
+	text-align: center;
 }
-
-
-
 
 #sujets {
 text-align: center;
 }
-
-
-
 
 #comments {
 font-size: 12px;
@@ -793,9 +799,8 @@ text-align: left;
 background-repeat: no-repeat; 
 background-size: cover;*/
 
-position: relative;
+	position: relative;
 }
-
 
 .brand-logo {
   position: absolute;
@@ -823,9 +828,6 @@ display: inline;
 
 padding-top: 10px;	
 }
-
-
-
 
 .button_nd {
 	color : #fff;
