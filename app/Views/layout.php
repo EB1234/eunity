@@ -105,10 +105,7 @@
 						</section>
 					</div>
 					</div>
-				</div>						
-
-
-				<li><input type="texte" name="search"></li>
+				</div>
 			</ul>
 		</nav>
 	</header>
