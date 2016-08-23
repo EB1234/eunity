@@ -5,27 +5,16 @@ namespace Controller;
 use \W\Controller\Controller;
 use Model\MembreModel;
 use Model\Membre;
+use Model\Salon;
+use Model\SalonModel;
+use Model\SujetModel;
+use Model\ParticiperModel;
 use Controller\InscriptionController;
 
 class MembreController extends Controller
 {
 
 	public function profil()
-	{
-		//on crée un nouvel objet qui permet de recuperer les données de la base de donnée
-		$db= new MembreModel;
-		$MembreConnecte = $this->getUser();
-
-		 // on redéfinit le nom de la clé primaire de la table
-		$db->setPrimaryKey('id_membre');
-		$UnMembre = $db->getMembre($MembreConnecte['id_membre']);
-
-		// je vais appeler la vue "profil" et envoyer les données dans le dossier "membre"
-		$this->show('membre/profil',['membre'=> $UnMembre]);
-		
-	}
-
-	public function profil_2()
 	{
 		//on crée un nouvel objet qui permet de recuperer les données de la base de donnée
 		$db= new MembreModel;
@@ -36,11 +25,72 @@ class MembreController extends Controller
 		$MembreConnecte = $this->getUser();
 		$ID_MEMBRE = $MembreConnecte['id_membre'];
 
-		$UnMembre = $db->getMembre(1);
+		$UnMembre = $db->getMembre($ID_MEMBRE);
 
 		// je vais appeler la vue "profil" et envoyer les données dans le dossier "membre"
-		$this->show('membre/profil_2',['membre'=> $UnMembre]);
+		$this->show('membre/profil',['membre'=> $UnMembre]);
 		
+	}
+
+	public function profil_2($idsalon)
+	{
+
+		// 1 -- On Récupère le Salon
+
+		$dbSalon = new SalonModel;
+		$dbSalon->setTable('salon_rdv');
+		$dbSalon->setPrimaryKey('id_salon');
+
+		$Salon = $dbSalon->getSalon($idsalon);
+
+		// 2 -- On récupère le Membre Maitre
+		$db= new MembreModel;
+		$db->setTable('membre');
+		$db->setPrimaryKey('id_membre');
+		
+		$MembreMaitre = $db->getMembre($Salon->getIdMembreMaitre());
+
+		// 3 -- Récupération des Participants
+		$ParticiperModel = new ParticiperModel;
+		$ListeDesParticipants = $ParticiperModel->getParticipants($idsalon);
+
+		// 4 -- Transmission des informations à la vue
+		$this->show('membre/profil_2',[
+			'MembreMaitre'			=> $MembreMaitre,
+			'Salon'					=> $Salon,
+			'ListeDesParticipants'	=> $ListeDesParticipants
+			]);
+		
+	}
+
+	public function profilPublic($idsalon="", $idmembre=""){
+
+		$dbSalon = new SalonModel;
+		$dbSalon->setTable('salon_rdv');
+		$dbSalon->setPrimaryKey('id_salon');
+
+		$affichageSalon = $dbSalon->getSalon($idmembre);
+
+		$dbProfilPublic = new MembreModel;
+		$dbProfilPublic->setTable('membre');
+		$dbProfilPublic->setPrimaryKey('id_membre');
+
+		$affichageProfil = $dbProfilPublic->getMembre($idsalon);
+
+		$dbSujetProfil = new SujetModel;
+		$dbSujetProfil->setTable('sujet');
+		$dbSujetProfil->setPrimaryKey('id_sujet');
+
+		$affichageSujetProfil = $dbSujetProfil->getSujet($affichageSalon->getIdSujet());
+
+		// $dbParticipants = new ParticiperModel;
+		// $dbParticipants->setTable('participer');
+		// $dbParticipants->setPrimaryKey('id_membre');
+
+		// $affichageParticipants = $dbParticipants->getParticipants($idmembre);
+
+		$this->show('membre/profil_2',['id' => $idmembre, 'slug' => $idsalon, 'membre' => $affichageProfil, 'affichageSujetProfil' => $affichageSujetProfil, 'affichageSalon' => $affichageSalon]
+			);
 	}
 
 	public function modifier()

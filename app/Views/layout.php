@@ -17,8 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/shuffle.css') ?>">
-	
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/shuffle.css') ?>">	
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/font-awesome.min.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/font-awesome.css') ?>">
@@ -130,6 +129,14 @@
 	<script src="<?= $this->assetUrl('js/main-formulaire.js'); ?>"></script>
 	<script src="<?= $this->assetUrl('js/main-connexion.js'); ?>"></script>
 	<script src="<?= $this->assetUrl('js/main-contact.js'); ?>"></script>
+
+
+
+<!-- 	<script src="<?= $this->assetUrl('js/jquery-1.11.3.min.js'); ?>"></script>
+	<script src="<?= $this->assetUrl('js/jssor.slider-21.1.5.debug.js'); ?>"></script>
+	<script src="<?= $this->assetUrl('js/jssor.slider-21.1.5.min.js'); ?>"></script>
+	<script src="<?= $this->assetUrl('js/jssor.slider-21.1.5.mini.js'); ?>"></script> -->
+
 	
 	</body>
 </html>
