@@ -469,15 +469,7 @@ hr {
     float: left;
 }
 
-msg-error
-{
-	font-size: .7em;
-	font-family: 'Open Sans', sans-serif;
-    font-family: 'Droid Sans', sans-serif;
-    color: #34828E;
-    text-align: left;
-    float: left;
-}
+
 
 /*	STYLE FORMULAIRE DE CONTACT*/
 
@@ -611,30 +603,217 @@ iframe
 
 /*RAJOUT DE COMMENTS PAGE PROFIL PUBLIC (SUJET)*/
 
-.gestio-com-suj
+.container-liste
 {
 	margin: auto; 
 	width: 100%; 
-	min-height: 80%;
-	margin-bottom:100px;
+	min-height: 100%;
 	background-color: #f4f4ef;
+	min-height: 90%;
 }
 
-.gestion-rigth
-{
-	width:50%;
-	background-color:#ddd;
-	float:left;
-	height:100px;
+.liste-suj-com-salon {
+	margin: auto;
+	width: 50%;
+	background-color: #f4f4ef;
+	padding-bottom:30px;
 }
 
-.gestion-left
+.liste-suj-com-salon img
+{
+	margin:auto;
+	width:100%;
+}
+
+.liste-com-suj
+{
+	margin: auto; 
+	width: 90%; 
+	margin-bottom:100px;
+	height:800px;
+}
+
+
+.liste-com 
+{
+	margin: auto; 
+	width: 100%; 
+	padding:30px;
+	background-color: #E3E7E8; 
+	color: #919E9E; 
+	font-size: 2em; 
+	text-align: center; 
+	text-transform: uppercase; 
+	letter-spacing: 0.1em;
+}
+
+
+.liste-com button
+{
+	display:inline;
+	margin-left:250px;
+	margin-right:250px;
+	color:#fff;
+}
+
+.liste-com  a
+{
+	color:#fff;
+}
+
+.liste-com button .msg-error a{
+	font-size: 1.2em;
+	font-family: 'Open Sans', sans-serif;
+    font-family: 'Droid Sans', sans-serif;
+    color: #fff;
+    font-weight: normal;
+    padding: 50px;
+}
+
+
+.liste-com-suj h1
+{
+
+	color:#2C3E50;
+	text-align:center;
+	color: #fff;
+}
+
+
+.liste-rigth
 {
 	width:50%;
-	background-color:#eee;
 	float:left;
 	height:100px;
+	background-color: #2C3E50;
 }
+
+
+.liste-left
+{
+	width:50%;
+	float:left;
+	height:100px;
+	background-color: #2C3E50;
+}
+
+.liste-left form
+{
+	width: 20%;
+}
+
+.liste-left h3, .liste-rigth h3
+{
+	text-align: center;
+	color: #fff;
+	font-weight: normal;
+	font-size: 1.2em;
+}
+
+.membre-comments
+{
+	width:100%;
+	float:left;
+	background-color:#E3E7E8;
+	font-size: 1em;
+	padding:5px;
+}
+
+.membre-comments h5
+{
+	font-size: 1em;
+	text-align:left;
+	color:#2C3E50;
+
+}
+.membre-comments img
+{
+	width:15%;
+	height:15%;
+	float:left;
+}
+.comments-txt
+ {
+	float:left;
+	width:50%;
+	text-align:left;
+	padding-left:20px;
+	font-size: 1.2em;
+ }
+
+.comments-txt-salon
+ {
+	float:left;
+	text-align:right;
+	padding-left:20px;
+	font-size: 1.2em;
+	color:#2C3E50;
+ }
+
+.comments-adresse
+ {
+	float:left;
+	width:50%;
+	text-align:left;
+	padding-left:20px;
+	font-size: 1em;
+ }
+
+ .comments-txt a
+ {
+ 	color:#2C3E50;
+ 	font-size: 1em;
+ 	text-align: right;
+ }
+
+.new-label-container
+ {
+	float:left;
+	width:25%;
+	margin-top:45px;
+	text-align:center;
+	padding-right:10px;
+ }
+
+
+.new-label-container-salon
+ {
+	float:right;
+	width:40%;
+	text-align:right;
+	padding-right:10px;
+	padding-bottom: 10px;
+ }
+
+ .new-label-container-salon a
+ {
+	float:right;
+	text-align:center;
+	font-size: 1em;
+	color: #278EB1;
+	padding-top: 38px;
+ }
+ 
+.new-label-new
+  {
+	display: inline-block;
+	padding: 0 5px;
+	background: #DF6C4F; 
+	font-size:1em; 
+	font-style: normal; 
+	color: #FFF; 
+	line-height: 18px; 
+	border-radius: 2px
+}
+
+
+.new-label-date
+{
+	padding:0;
+}
+  
+
+
 
 /*******************************************
       		PAGE GESTION DE SUJET
