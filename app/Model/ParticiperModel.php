@@ -1,6 +1,7 @@
 <?php
 namespace Model;
 use Model\Participer;
+use Model\MembreModel;
 
 class ParticiperModel extends \W\Model\Model{
 
@@ -13,11 +14,14 @@ class ParticiperModel extends \W\Model\Model{
 		$AffichageSalonParticipants = $this->search($idSalonParticipants);
 
 		foreach ($AffichageSalonParticipants as $value) {
-			$this->tableau_participer[] = new Participer(
-				$value['id_salon'],
-				$value['id_membre'],
-				$value['statut']
-			);
+
+			$idmembre = $value['id_membre'];
+
+			$db= new MembreModel;
+			$db->setTable('membre');
+			$db->setPrimaryKey('id_membre');
+
+			$this->tableau_participer[] = $db->getMembre($idmembre);
 		}
 
 		return $this->tableau_participer;

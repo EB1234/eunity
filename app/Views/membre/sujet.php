@@ -30,7 +30,6 @@
 
         <a href="<?= $this->url('salon', ['id_salon' => $UnSalon->getIdSalon()]) ?>"><?=$UnSalon->getLieuRdv()?></a>
         <?=$UnSalon->getNom()?>
-         <?=$UnSalon->getOpenClose()?> 
          
 				
 			<?php endforeach; ?>
