@@ -2,8 +2,6 @@
 
 <?php $this->start('main_content') ?>
 
-
-
 <main class="sujet">
     <!-- Modal content -FENETRE MODAL DE COMMENTAIRE -->
     <div id="myWinmodal" class="myWinmodal">
@@ -18,7 +16,6 @@
         </div>            
     </div>
 
-<<<<<<< HEAD
     <div style="margin: 30px 0; width: 100%; background-color: #E3E7E8; color: #919E9E; font-size: 2em; text-align: center; font-family: 'Helvetica', sans serif; text-transform: uppercase; letter-spacing: 0.1em;">
     <!--it’s a pleasure to meet you.<br>
         let’s have coffee sometime.<br> -->
@@ -28,9 +25,7 @@
         <a href="#comments">Comment</a>
        
     </div>
-
-		
- 		
+	
 <!-- <?php //print_r($ListeDeSalons); ?> -->
 <article class="superpositions"
 <section id="meet_up"> 
