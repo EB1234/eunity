@@ -4,7 +4,6 @@ var winmodal = document.getElementById('myWinmodal');
 
 // Get the button that opens the winmodal
 var btn = document.getElementById("myBtn2");
-
 // Get the <span> element that closes the winmodal
 var span = document.getElementsByClassName("closing")[0];
 
