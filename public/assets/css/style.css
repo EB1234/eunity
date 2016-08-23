@@ -7,24 +7,19 @@
 	background-color: #272822;
 	color: #F8F8F2;
 }
-
 .container {
 	margin: 50px;
 }
-
 a {
 	text-decoration: none;
 	color: #A6E22E;
 }
-
 a:hover {
 	color: #F92672;
 }
-
 h1 {
 	color: #F92672;
 }
-
 h2 {
 	color: #66D9EF;
 }*/
@@ -33,7 +28,6 @@ h2 {
         POLICES DE LA PAGE HOME
 *******************************************/
 
-@import 'https://fonts.googleapis.com/css?family=Montserrat';
 @import 'https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans';
 
 /*******************************************
@@ -79,7 +73,14 @@ nav ul li a {
 	text-decoration: none;
 }
 
+nav ul li a:hover {
+	color: #000;
+	text-decoration: underline;
+	border-color: #F00;
+}
+
 main {
+	// background-color: #eee;
 	background-color: #2f2e3d;
 }
 
@@ -123,7 +124,7 @@ footer ul li a:hover{
 footer ul li a:visited{
 	color:red;
 }
-
+²
 footer p {
 	margin-top: 30px;
 }
@@ -143,19 +144,27 @@ select {
 
 div.home {
 	position: relative;
-	background-image: linear-gradient(-45deg, #FFFFA4 0%, #F5DFAD 25%, #84BDB4 50%, #278EB1 75%, #34828E 100%);
+	background-image: url('../img/soc1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	// background-image: linear-gradient(-45deg, #FFFFA4 0%, #F5DFAD 25%, #84BDB4 50%, #278EB1 75%, #34828E 100%);
 	color: #FFF;
 	height: 400px;
 	overflow: hidden;
 }
 
 div.home h1 {
-	margin: auto;
-	opacity: 0.90;
+	color: #333;
+	margin: 1px 1px 35px 1px;
 	letter-spacing: -.06em;
 	text-align: center;
-	font-size: 7.5em;
-	width: 100px;
+	font-size: 7.25em;
+}
+
+.bloc_titre {
+	background-color: rgba(255, 255, 255, 0.75);
+	margin: auto;
+	width: 25%;
 }
 
 div.home input {
@@ -163,6 +172,10 @@ div.home input {
 	margin: auto;
 	padding: 10px;
 	width: 30%;
+}
+
+.borderR100 {
+	border-right: 100vw;
 }
 
 .triangle-top {
@@ -177,7 +190,7 @@ div.home input {
 	right: 0;
 	width: 0;
 	height: 0;
-	z-index: 50;
+	z-index: 30;
 	border-bottom: 70px solid #2F2E3D;
 	border-right: 100vw solid transparent;
 }
@@ -244,8 +257,10 @@ main.sujet {
 }
 
 .accroche {
-	width: 60%;
-	float: left;
+	color: #FFF;
+	// font-family: 'Merienda One', serif;
+	font-size: 2em;
+	width: 100%;
 }
 
 .new {
